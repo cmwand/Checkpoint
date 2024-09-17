@@ -1,0 +1,7 @@
+{
+  "name": "Checkpoint",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
