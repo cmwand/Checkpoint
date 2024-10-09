@@ -1,0 +1,9 @@
+<ion-content>
+  <div class="image-container" *ngIf="images.length > 0">
+    <img [src]="images[currentIndex].src" [ngClass]="{'fade-in': fadeState === 'in', 'fade-out': fadeState === 'out'}" class="background-image" />
+    <div class="credits">{{ images[currentIndex].credits }}</div>
+  </div>
+
+  <img src="assets/img/logoindex.png" class="logo">
+  <button class="start-button">Start</button>
+</ion-content>
