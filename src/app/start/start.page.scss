@@ -57,6 +57,7 @@
    font-size: 16px;
    background: linear-gradient(#002525, #008b8b);
    color: #00ffff;
+   border: 1px solid #00ffff;
    border-radius: 5px;
    cursor: pointer;
    z-index: 2;
@@ -90,3 +91,14 @@
     background: transparent;
     box-shadow: none;
   }
+
+.about-img{
+  position: absolute;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  bottom: 21px;
+  left: 1%;
+  background: linear-gradient(#002525, #008b8b);
+  border-radius: 50px;
+}
