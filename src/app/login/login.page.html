@@ -1,29 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="login-container">
+    <ion-button (click)="closeModal()" class="close-button" fill="clear" size="small"> <!-- Botão de fechar -->
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+    
     <h2>Login</h2>
+    
     <ion-item>
-      <ion-label position="floating">Usuário</ion-label>
-      <ion-input type="text"></ion-input>
+      <div class="login">
+        <ion-label position="floating">Usuário</ion-label>
+        <ion-input type="text"></ion-input>
+      </div>
     </ion-item>
-
+    
     <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password"></ion-input>
+      <div class="senha">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password"></ion-input>
+      </div>
     </ion-item>
-
-    <ion-button expand="block">Entrar</ion-button>
-
+    <br>
+    <div class="entrar">
+      <ion-button expand="block" fill="clear" size="small">Entrar</ion-button> <!-- Botão de Entrar -->
+    </div>
+    
     <ion-text color="medium" class="forgot-password">Esqueceu sua senha?</ion-text>
-    <ion-button expand="block" fill="outline">Cadastre-se</ion-button>
+    <ion-button expand="block" fill="clear" size="small">Cadastre-se</ion-button> <!-- Botão de Cadastre-se -->
   </div>
 </ion-content>

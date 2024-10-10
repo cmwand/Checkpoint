@@ -10,22 +10,49 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#002525, #008b8b);
+    background-color: #002525;
   }
 
   .sobre{ 
     font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+    text-align: center;
+    background: linear-gradient(#002525, #006363);
   }
 
   .geral{ 
     font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+    text-align: center;
+    background: linear-gradient(#002525, #008b8b);
+    border: 2px solid #008b8b;
+    margin-top: 20px;
   }
 
   .membro{ 
     font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: linear-gradient(#002525, #008b8b);
+    border: 2px solid #008b8b;
   }
 
-  .imgform{
-    float: right;
-}
+  h1{
+    font-size: 20px;
+    margin: 0;
+    padding: 0; 
+  }
 
+  .imgform {
+    float: right;
+    margin-left: 5%;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #00ffff;
+    border-radius: 2%;
+    object-fit: cover;
+}
