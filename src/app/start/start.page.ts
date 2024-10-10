@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-start',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.page.scss'],
 })
 export class StartPage implements OnInit {
+  
   images = [
     {
       src: 'assets/img/tlou2.jpg',
@@ -21,17 +24,20 @@ export class StartPage implements OnInit {
     },
     {
       src: 'assets/img/bioshock.png',
-      credits: 'Bioshock Infinite (2013) - 2K Games'
+      credits: 'Bioshock Infinite (2013) - 2K Games',
     }
   ];
-
+  
   currentIndex = 0;
   fadeState = 'in';
 
-  constructor() {}
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
-    this.fadeState = 'in';
+    this.startImageCarousel();
+  }
+
+  startImageCarousel() {
     setInterval(() => {
       this.fadeState = 'out';
       setTimeout(() => {
@@ -39,5 +45,13 @@ export class StartPage implements OnInit {
         this.fadeState = 'in';
       }, 1000);
     }, 6000);
+  }
+
+  async openLoginModal() {
+    const modal = await this.modalController.create({
+      component: LoginPage,
+      cssClass: 'login-modal',
+    });
+    return await modal.present();
   }
 }

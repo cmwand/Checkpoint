@@ -1,0 +1,22 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  ion-item {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  .forgot-password {
+    margin: 15px 0;
+    text-align: center;
+  }

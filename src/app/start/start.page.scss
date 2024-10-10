@@ -75,3 +75,18 @@
     z-index: 1;
   }
   
+  .login-modal {
+    --width: 80%;
+    --height: 80%;
+    top: 10%;
+    --background: transparent;
+    backdrop-filter: none;
+    box-shadow: none; 
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .login-modal .modal-wrapper {
+    background: transparent;
+    box-shadow: none;
+  }
