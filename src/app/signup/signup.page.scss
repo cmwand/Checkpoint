@@ -1,0 +1,66 @@
+.cadastro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    background: linear-gradient(#002525, #008b8b);
+    border: 2px solid #00ffff;
+    font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+  }
+  
+  ion-item {
+    width: 100%;
+    max-width: 400px;
+    background-color: #000000;
+    font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  ion-button {
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    background: linear-gradient(#002525, #008b8b);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  ion-modal {
+    --backdrop-opacity: 0;
+  }
+  
+  .modal-wrapper {
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    font-size: 20px;
+    padding: 0;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: 2px solid #00ffff;
+  }
+  
+  .close-button ion-icon {
+    color: #00ffff;
+    font-size: 20px;
+  }
+  
+  .signup-modal {
+    --background: transparent;
+    --width: 80%;
+    --height: 80%;
+  }

@@ -3,6 +3,11 @@ ion-content {
     overflow: hidden;
     height: 100vh;
 }
+
+ion-button {
+  text-transform: none;
+}
+
   
 main {
     position: absolute;
