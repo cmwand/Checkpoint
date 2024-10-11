@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
+import { AboutPage } from '../about/about.page';
 
 @Component({
   selector: 'app-start',
@@ -19,12 +20,20 @@ export class StartPage implements OnInit {
       credits: 'Control (2019) - Remedy Entertainment',
     },
     {
+      src: 'assets/img/tekken8.png',
+      credits: 'Tekken 8 (2024) - Bandai Namco',
+    },
+    {
       src: 'assets/img/alien.png',
       credits: 'Alien: Isolation (2014) - Sega',
     },
     {
-      src: 'assets/img/bioshock.png',
-      credits: 'Bioshock Infinite (2013) - 2K Games',
+      src: 'assets/img/re4.jpg',
+      credits: 'Resident Evil 4 Remake (2023) - CAPCOM',
+    },
+    {
+      src: 'assets/img/batmanak.jpg',
+      credits: 'Batman: Arkham Knight (2015) - Rocksteady',
     }
   ];
   
@@ -51,6 +60,14 @@ export class StartPage implements OnInit {
     const modal = await this.modalController.create({
       component: LoginPage,
       cssClass: 'login-modal',
+    });
+    return await modal.present();
+  }
+
+  async openAboutModal() {
+    const modal = await this.modalController.create({
+      component: AboutPage, 
+      cssClass: 'about-modal',
     });
     return await modal.present();
   }

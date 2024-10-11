@@ -102,3 +102,9 @@
   background: linear-gradient(#002525, #008b8b);
   border-radius: 50px;
 }
+
+.about-modal {
+  --background: transparent;
+  --width: 80%;
+  --height: 80%;
+}
