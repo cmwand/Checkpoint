@@ -69,6 +69,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Firebase
+# Environments
 src/environments/environment.ts
 src/environments/environment.prod.ts
