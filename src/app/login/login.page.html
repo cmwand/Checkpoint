@@ -8,19 +8,19 @@
     <ion-item>
       <div class="login">
         <ion-label position="floating">Usuário</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="username"></ion-input> <!-- Vinculando a variável username -->
       </div>
     </ion-item>
     
     <ion-item>
       <div class="senha">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="password"></ion-input> <!-- Vinculando a variável password -->
       </div>
     </ion-item>
     <br>
     <div class="entrar">
-      <ion-button expand="block" fill="clear" size="small">Entrar</ion-button>
+      <ion-button expand="block" fill="clear" size="small" (click)="login()">Entrar</ion-button> <!-- Chama a função login -->
     </div>
     
     <ion-text color="medium" class="forgot-password">Esqueceu sua senha?</ion-text>

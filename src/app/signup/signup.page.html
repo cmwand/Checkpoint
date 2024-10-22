@@ -7,26 +7,26 @@
     <h2>Cadastro</h2>
     
     <ion-item>
-        <ion-label position="floating">Usuário</ion-label>
-        <ion-input type="text"></ion-input>
+      <ion-label position="floating">Usuário</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label position="floating">E-Mail</ion-label>
-        <ion-input type="email"></ion-input>
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password"></ion-input>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
     
     <ion-item>
-        <ion-label position="floating">Confirme sua senha</ion-label>
-        <ion-input type="password"></ion-input>
+      <ion-label position="floating">Confirme sua senha</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
     </ion-item>
     <br>
-      <ion-button expand="block" fill="clear" size="small">Criar</ion-button>
+    <ion-button expand="block" fill="clear" size="small" (click)="signup()">Criar</ion-button>
   
     
     <ion-text color="medium" class="forgot-password">Ou</ion-text>
