@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>config_xb</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">config_xb</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="xbox">
+  <div class="button-container">
+    <button expand="block" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+      Xbox (Clássico)
+      <img src="assets/img/config/xb/xbox.png" class="icon" />
+    </button>
+    <button expand="block" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+      Xbox 360
+      <img src="assets/img/config/xb/xbox360.png" class="icon" />
+    </button>
+    <button expand="block" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+      Xbox One
+      <img src="assets/img/config/xb/xboxone.png" class="icon" />
+    </button>
+    <button expand="block" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+      Xbox Series S/X
+      <img src="assets/img/config/xb/xboxsx.png" class="icon" />
+    </button>
+  </div>
 </ion-content>
