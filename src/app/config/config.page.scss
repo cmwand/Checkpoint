@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image1{
+height:95px;
+width:95px;
+border-radius:10px;
+border:0.5px solid #00ffff;
+left:26px;
+top: 132px;
+position:absolute;
+}
+
+.image2{
+height:95px;
+width:95px;
+border-radius:10px;
+border:0.5px solid #00ffff;
+left:226px;
+top: 132px;
+position:absolute;
+}
+
+.image3{
+height:95px;
+width:95px;
+border-radius:10px;
+border:0.5px solid #00ffff;
+left:26px;
+top: 302px;
+position:absolute;
+}
+
+.image4{
+height:95px;
+width:95px;
+border-radius:10px;
+border:0.5px solid #00ffff;
+left:226px;
+top: 302px;
+position:absolute;
+}
+
+ion-text{
+    font-family: "Libre Baskerville", serif;
+}
+
+h1{
+    color: #00ffff;
+    text-align: center;
+    background: none;
+}

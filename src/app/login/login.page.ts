@@ -2,13 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { SignupPage } from '../signup/signup.page';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-
-interface User {
-  email: string;
-  username: string;
-  // Adicione outros campos que você espera receber
-}
 
 @Component({
   selector: 'app-login',
@@ -16,14 +9,13 @@ interface User {
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  username: string = '';
+  email: string = '';
   password: string = '';
 
   constructor(
     private modalController: ModalController,
     private afAuth: AngularFireAuth,
-    private alertCtrl: AlertController,
-    private firestore: AngularFirestore
+    private alertCtrl: AlertController
   ) {}
 
   closeModal() {
@@ -42,16 +34,10 @@ export class LoginPage implements OnInit {
 
   async login() {
     try {
-      const userDoc = await this.firestore.collection('users', ref => ref.where('username', '==', this.username)).get().toPromise();
-
-      if (userDoc && !userDoc.empty) {
-        const user = userDoc.docs[0].data() as User; // Type assertion aqui
-        await this.afAuth.signInWithEmailAndPassword(user.email, this.password); // Use user.email
-        this.showAlert('Sucesso', 'Login realizado com sucesso!');
-        this.closeModal();
-      } else {
-        this.showAlert('Erro', 'Usuário não encontrado.');
-      }
+      // Faz a autenticação usando email e senha
+      await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
+      this.showAlert('Sucesso', 'Login realizado com sucesso!');
+      this.closeModal();
     } catch (error) {
       this.handleFirebaseError(error);
     }
@@ -61,16 +47,26 @@ export class LoginPage implements OnInit {
     let message = '';
     switch (error.code) {
       case 'auth/wrong-password':
-        message = 'Senha incorreta.';
+        message = 'Senha incorreta. Verifique e tente novamente.';
         break;
       case 'auth/user-not-found':
-        message = 'Usuário não encontrado.';
+        message = 'Usuário não encontrado. Verifique o email informado.';
+        break;
+      case 'auth/invalid-email':
+        message = 'Email inválido. Verifique o formato do email.';
+        break;
+      case 'auth/invalid-credential':
+        message = 'Credenciais inválidas. Verifique suas informações.';
+        break;
+      case 'auth/too-many-requests':
+        message = 'Muitas tentativas falhadas. Tente novamente mais tarde.';
         break;
       default:
-        message = 'Ocorreu um erro. Tente novamente.';
+        message = error.message || 'Ocorreu um erro. Tente novamente.';
     }
     this.showAlert('Erro', message);
   }
+  
 
   async showAlert(header: string, message: string) {
     const alert = await this.alertCtrl.create({

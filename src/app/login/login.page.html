@@ -6,22 +6,16 @@
     <h2>Login</h2>
     
     <ion-item>
-      <div class="login">
-        <ion-label position="floating">Usuário</ion-label>
-        <ion-input type="text" [(ngModel)]="username"></ion-input> <!-- Vinculando a variável username -->
-      </div>
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input> <!-- Vinculando email -->
     </ion-item>
     
     <ion-item>
-      <div class="senha">
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password" [(ngModel)]="password"></ion-input> <!-- Vinculando a variável password -->
-      </div>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input> <!-- Vinculando senha -->
     </ion-item>
     <br>
-    <div class="entrar">
-      <ion-button expand="block" fill="clear" size="small" (click)="login()">Entrar</ion-button> <!-- Chama a função login -->
-    </div>
+    <ion-button expand="block" fill="clear" size="small" (click)="login()">Entrar</ion-button> <!-- Chama a função login -->
     
     <ion-text color="medium" class="forgot-password">Esqueceu sua senha?</ion-text>
     <ion-button expand="block" fill="clear" size="small" (click)="openSignupModal()">Cadastre-se</ion-button>
