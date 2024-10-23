@@ -37,6 +37,12 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+ion-modal {
+    --width: 80%;
+    --height: 80%;
+  }
+  
+
 
 
 @import './app/start/start.page.scss';
@@ -44,3 +50,6 @@
 @import './app/home/home.page.scss';
 @import './app/about/about.page.scss';
 @import './app/login/login.page.scss';
+@import './app/config-ps/config-ps.page.scss';
+@import './app/config-xb/config-xb.page.scss';
+@import './app/config-nt/config-nt.page.scss';

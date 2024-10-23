@@ -25,7 +25,19 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },  {
+    path: 'config-ps',
+    loadChildren: () => import('./config-ps/config-ps.module').then( m => m.ConfigPsPageModule)
+  },
+  {
+    path: 'config-xb',
+    loadChildren: () => import('./config-xb/config-xb.module').then( m => m.ConfigXbPageModule)
+  },
+  {
+    path: 'config-nt',
+    loadChildren: () => import('./config-nt/config-nt.module').then( m => m.ConfigNtPageModule)
   }
+
 
 
 ];
