@@ -1,20 +1,25 @@
 <ion-content class="xbox">
   <div class="button-container">
-    <button expand="block" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
-      Xbox (Clássico)
-      <img src="assets/img/config/xb/xbox.png" class="icon" />
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+      <span>Xbox (Clássico)</span>
+      <img src="assets/img/config/xb/xbox.png" class="icon"/>
     </button>
-    <button expand="block" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
-      Xbox 360
-      <img src="assets/img/config/xb/xbox360.png" class="icon" />
+    <br>
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+      <span>Xbox 360</span>
+      <img src="assets/img/config/xb/xbox360.png" class="icon"/>
     </button>
-    <button expand="block" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
-      Xbox One
-      <img src="assets/img/config/xb/xboxone.png" class="icon" />
+    <br>
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+      <span>Xbox One</span>
+      <img src="assets/img/config/xb/xboxone.png" class="icon"/>
     </button>
-    <button expand="block" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
-      Xbox Series S/X
-      <img src="assets/img/config/xb/xboxsx.png" class="icon" />
+    <br>
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+      <span>Xbox Series X/S</span>
+      <img src="assets/img/config/xb/xboxsx.png" class="icon"/>
     </button>
+    <br>
   </div>
+  <button class="botbotao_xb">AVANÇAR</button>
 </ion-content>
