@@ -17,21 +17,22 @@ ion-content {
 
 .button-container {
     display: flex;
-    flex-direction: column;
+    //flex-direction: block;
     gap: 20px;
     margin-top: 50px;
     margin-bottom: 50px; 
   }
   
   .botao_xb {
-    justify-content: space-between;
     align-items: center;
     background: linear-gradient(#002525, #107C10);
-    border: 1px solid #00ffff;
-    border-radius: 5px;
+    // border: 1px solid #00ffff;
+    // border-radius: 5px;
     color: #00ffff;
-    padding: 15px;
+    //padding: 24px 24px;
     font-size: 16px;
+    transform: translateX(-50%);
+    display: flex;
   }
 
   .botao_xb span {
@@ -43,11 +44,11 @@ ion-content {
   .icon {
     width: 20px;
     height: 20px;
-    margin-left: auto;
   }
   
   .botao_xb.selected {
-    color: #13ff13;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
   }
 
   .botbotao_xb {
@@ -60,7 +61,7 @@ ion-content {
     font-size: 16px;
     background: linear-gradient(#002525, #107C10);
     color: #00ffff;
-    border: 1px solid #00ffff;
+    border: 2px solid #00ffff;
     border-radius: 5px;
     cursor: pointer;
    }

@@ -1,8 +1,39 @@
-<ion-header [translucent]="true">
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <div class="ps">
-  <button class="botbotao_ps">Salvar</button>
-</div>
+<ion-content class="ps">
+  <div class="button-container">
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+      <span>PS1</span>
+      <img src="assets/img/config/ps/ps1.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+      <span>PS2</span>
+      <img src="assets/img/config/ps/ps2.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+      <span>PS3</span>
+      <img src="assets/img/config/ps/ps3.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+      <span>PSP</span>
+      <img src="assets/img/config/ps/HANDHELDpsp.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(5)" (click)="toggleSelection(5)">
+      <span>PS VITA</span>
+      <img src="assets/img/config/ps/HANDHELDpsvita.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(6)" (click)="toggleSelection(6)">
+      <span>PS4</span>
+      <img src="assets/img/config/ps/ps4.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_ps" [class.selected]="selectedButtons.includes(7)" (click)="toggleSelection(7)">
+      <span>PS5</span>
+      <img src="assets/img/config/ps/ps5.png" class="icon"/>
+    </button>
+    <br>
+  </div>
 </ion-content>

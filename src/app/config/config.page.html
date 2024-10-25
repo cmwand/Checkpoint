@@ -1,24 +1,32 @@
 <ion-content>
-<body>
-<div class="bg_img">
-<img src="assets/img/config_bg.png">
-</div>
-<img src="assets/img/config/ps.png" class="image1" (click)="openPsModal()">
-<img src="assets/img/config/xbox.png" class="image2" (click)="openXbModal()">
-<img src="assets/img/config/nintendo.png" class="image3" (click)="openNtModal()">
-<img src="assets/img/config/PC.png" class="image4">
-<img src="assets/img/config/mobile.png" class="image5">
-
-<div class="text">
+<body class="body_config">
+    <div class="text">
     <ion-text>
         <p>Bem vindo, usuário!</p>
         <p>Selecione as plataformas que gostaria de adicionar ao seu perfil:</p>
     </ion-text>
 </div>
+<div class="bg_img">
+<img src="assets/img/config_bg.png">
+</div>
+<div class="img-grid">
+    <div class="img-consoles">
+        <img src="assets/img/config/ps.png" class="img-logos" (click)="openPsModal()">
+        <img src="assets/img/config/xbox.png" class="img-logos" (click)="openXbModal()">
+        <img src="assets/img/config/nintendo.png" class="img-logos" (click)="openNtModal()">
+        <img src="assets/img/config/PC.png" class="img-logos">
+    </div>
+    <div class="img-mobile">
+        <img src="assets/img/config/mobile.png" class="img-logos">
+    </div>
+</div>
 
-<p class="save-botao">LIMPAR</p>
 
-<p class="clear-botao">SALVAR</p>
+
+<div class="botao-footer-grid">
+    <p class="botao-footer">LIMPAR</p>
+    <p class="botao-footer">SALVAR</p>
+</div>
 
 </body>
 </ion-content>
