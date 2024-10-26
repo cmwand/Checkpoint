@@ -1,0 +1,76 @@
+.nintendo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    background: linear-gradient(#2b0b0d, #95252e);
+    border: 2px solid #00ffff;
+    font-family: "Libre Baskerville", serif;
+    color: #00ffff;
+  }
+  
+  ion-content {
+  --background: none;
+  height: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+  }
+  
+  .botao_nt {
+   align-items: center;
+    border: 1px solid #2b0b0d;
+    border-radius: 5px;
+    color: #2b0b0d;
+    padding: 24px 24px;
+    font-size: 16px;
+    display: flex;
+    background: linear-gradient(#f63b4b, #691a21);
+  }
+  
+  .botao_nt span {
+    flex-grow: 1;
+    text-align: left;
+    padding-right: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .icon {
+    width: 50%;
+    height: 50%;
+    border: 2px solid #2b0b0d;
+    border-radius: 5px;
+    justify-content: center;
+  }
+  
+  .botao_nt.selected {
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    color: #00ffff;
+    .icon {
+      border: 2px solid #00ffff;
+      border-radius: 5px;
+    }
+  }
+  
+  .botbotao_nt {
+    font-family: "Libre Baskerville", serif;
+    bottom: 35px;
+    left: 27.5%;
+    justify-content: center;
+    align-content: center;
+    position:relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(#002525, #008b8b);
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+   }

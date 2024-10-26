@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>config_nt</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">config_nt</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="nintendo">
+  <div class="button-container">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+      <span>NES</span>
+      <img src="assets/img/config/nt/nes.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+      <span>SNES</span>
+      <img src="assets/img/config/nt/snes.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+      <span>Nintendo 64</span>
+      <img src="assets/img/config/nt/n64.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+      <span>Game Boy Color</span>
+      <img src="assets/img/config/nt/HANDHELDgbc.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(5)" (click)="toggleSelection(5)">
+      <span>Game Boy Advance</span>
+      <img src="assets/img/config/nt/HANDHELDgba.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(6)" (click)="toggleSelection(6)">
+      <span>GameCube</span>
+      <img src="assets/img/config/nt/gc.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(7)" (click)="toggleSelection(7)">
+      <span>Nintendo DS</span>
+      <img src="assets/img/config/nt/HANDHELDds.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(8)" (click)="toggleSelection(8)">
+      <span>Nintendo Wii</span>
+      <img src="assets/img/config/nt/wii.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(9)" (click)="toggleSelection(9)">
+      <span>Nintendo 3DS</span>
+      <img src="assets/img/config/nt/HANDHELD3ds.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(10)" (click)="toggleSelection(10)">
+      <span>Nintendo Wii U</span>
+      <img src="assets/img/config/nt/wiiu.png" class="icon"/>
+    </button>
+    <br>
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(11)" (click)="toggleSelection(11)">
+      <span>Nintendo Switch</span>
+      <img src="assets/img/config/nt/switch.png" class="icon"/>
+    </button>
+  </div>
+  <button class="botbotao_nt">AVANÇAR</button>
 </ion-content>

@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./config-nt.page.scss'],
 })
 export class ConfigNtPage implements OnInit {
+  selectedButtons: number[] = [];
+
+  toggleSelection(buttonId: number) {
+    const index = this.selectedButtons.indexOf(buttonId);
+    if (index === -1) {
+      this.selectedButtons.push(buttonId);
+    } else {
+      this.selectedButtons.splice(index, 1);
+    }
+  }
 
   constructor() { }
 
