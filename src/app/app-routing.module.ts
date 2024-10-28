@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'config-nt',
     loadChildren: () => import('./config-nt/config-nt.module').then( m => m.ConfigNtPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   }
 
 
