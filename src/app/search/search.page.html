@@ -7,7 +7,7 @@
 <ion-content>
   <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchGames()"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let game of games">
+    <ion-item *ngFor="let game of games" (click)="goToGameDetails(game.id)">
       <ion-thumbnail slot="start">
         <img *ngIf="game.cover?.url" [src]="game.cover.url" alt="Capa do Jogo" />
       </ion-thumbnail>
@@ -16,5 +16,5 @@
         <p *ngIf="game.first_release_date">{{ game.first_release_date * 1000 | date: 'yyyy' }}</p>
       </ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list>  
 </ion-content>

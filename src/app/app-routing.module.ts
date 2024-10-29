@@ -25,7 +25,8 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
-  },  {
+  },
+  {
     path: 'config-ps',
     loadChildren: () => import('./config-ps/config-ps.module').then( m => m.ConfigPsPageModule)
   },
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'game-details/:id',
+    loadChildren: () => import('./game-details/game-details.module').then(m => m.GameDetailsPageModule)
   }
 
 

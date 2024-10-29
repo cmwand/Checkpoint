@@ -33,4 +33,26 @@ export class IgdbService {
       return [];
     }
   }
+
+  async getGameDetails(gameId: number): Promise<any> {
+    const headers = new HttpHeaders({
+      'Client-ID': environment.igdb.clientId,
+      'Authorization': `Bearer ${environment.igdb.token}`,
+      'Content-Type': 'application/json',
+    });
+  
+    const body = `
+      fields name, summary, cover.url;
+      where id = ${gameId};
+    `;
+  
+    try {
+      const response = await this.http.post<any[]>(this.apiUrl, body, { headers }).toPromise();
+      return response && response.length > 0 ? response[0] : null;
+    } catch (error) {
+      console.error('Erro ao buscar detalhes do jogo:', error);
+      return null;
+    }
+  }
+  
 }

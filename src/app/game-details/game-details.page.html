@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ game?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="game">
+    <img *ngIf="game.cover?.url" [src]="game.cover.url" alt="Capa do Jogo" />
+    <ion-card-header>
+      <ion-card-title>{{ game.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ game.summary }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
