@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root',
 })
 export class IgdbService {
-  private apiUrl = 'https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games';
+  private apiUrl = environment.igdb.apiUrl;
 
   constructor(private http: HttpClient) {}
 
