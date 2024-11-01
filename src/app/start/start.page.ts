@@ -13,11 +13,19 @@ export class StartPage implements OnInit {
   images = [
     {
       src: 'assets/img/tlou2.jpg',
-      credits: 'The Last of Us Part II (2020) - Sony Interactive Entertainment',
+      credits: 'The Last of Us Part II (2020) - Naughty Dog',
+    },
+    {
+      src: 'assets/img/mgs3.png',
+      credits: 'Metal Gear Solid 3: Snake Eater (2005) - Konami',
     },
     {
       src: 'assets/img/control.png',
       credits: 'Control (2019) - Remedy Entertainment',
+    },
+    {
+      src: 'assets/img/battlefield4.jpg',
+      credits: 'Battlefield (2013) - Electronic Arts',
     },
     {
       src: 'assets/img/tekken8.png',

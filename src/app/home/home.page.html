@@ -1,8 +1,40 @@
-<ion-content>
-<h1>home</h1>
-<button>
-    <ion-icon size="large" name="search-outline" [routerLink]="['/search']"></ion-icon>
-</button>
-
-
-</ion-content>
+<div class="header">
+    <button class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+    </button>
+    <ion-menu contentId="main-content">
+        <ion-header>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <button>
+                <ion-icon class="profile"  name="person-outline"></ion-icon><ion-text>Perfil</ion-text>
+            </button>
+            <br>
+            <button>
+                <ion-icon class="wishlist" name="list-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
+            </button>
+            <br>
+            <button [routerLink]="['/search']">
+                <ion-icon class="search-menu" name="search-outline" ></ion-icon><ion-text>Busca</ion-text>
+            </button>
+            <br>
+            <button [routerLink]="['/config']">
+                
+                <ion-icon class="settings" name="settings-outline"></ion-icon><ion-text>Configurações</ion-text>
+            </button>
+            <br>
+            <button [routerLink]="['']">
+                <ion-icon class="endsession" name="log-out-outline"></ion-icon><ion-text>Encerrar sessão</ion-text>
+            </button>
+        </ion-content>
+      </ion-menu>
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar class="toolbar">
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-icon class="search" name="search-outline" [routerLink]="['/search']"></ion-icon>
+          </ion-toolbar>
+        </ion-header>
+</div>

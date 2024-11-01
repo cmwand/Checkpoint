@@ -1,0 +1,28 @@
+ion-searchbar{
+    --background: linear-gradient(#002525, #008b8b);
+    --color: #00ffff;
+    --border: 2px;
+    --opacity: 0.5;
+    --ion-text-color-step-400: #00ffff;
+
+}
+
+.search-box{
+    --background: #002525;
+    --color: #00ffff;
+    --width: 120px;
+    --height: 12px;
+}
+
+.games{
+    --background: #002525;
+    --color: red;
+}
+.games-list{
+    --ion-item-background: none;
+}
+
+body {
+    background: var(--ion-background-color);
+    --ion-background-color: #00ffff;
+}
