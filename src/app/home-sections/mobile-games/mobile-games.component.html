@@ -1,0 +1,13 @@
+<div class="Mobile-games-section">
+  <h2>Mobile - Melhores Jogos</h2>
+  <div class="Mobile-games-container">
+    <button class="arrow-button" (click)="previousGame()">&#8249;</button>
+    <div class="game-list">
+      <div *ngFor="let game of visibleMobileGames" (click)="goToGameDetails(game.id)" class="game-item">
+        <img [src]="game.cover.url" alt="{{ game.name }}" />
+        <p>{{ game.name }}</p>
+      </div>
+    </div>
+    <button class="arrow-button" (click)="nextGame()">&#8250;</button>
+  </div>
+</div>

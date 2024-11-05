@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IgdbService } from '../igdb.service';
+import { IgdbService } from '../../igdb.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-n3ds-games',
+  templateUrl: './n3ds-games.component.html',
+  styleUrls: ['./n3ds-games.component.scss'],
 })
-
-export class HomePage implements OnInit {
-  trendingGames: any[] = [];
-  visibleTrendingGames: any[] = [];
+export class n3dsGamesComponent implements OnInit {
+  n3dsGames: any[] = [];
+  visiblen3dsGames: any[] = [];
   currentIndex: number = 0;
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
   async ngOnInit() {
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
-      this.trendingGames = games;
+    this.igdbService.getn3dsGames().subscribe((games) => {
+      this.n3dsGames = games;
       this.updateVisibleGames();
     });
   }
 
   nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
+    if (this.currentIndex + 4 < this.n3dsGames.length) {
       this.currentIndex += 1;
       this.updateVisibleGames();
     }
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+    this.visiblen3dsGames = this.n3dsGames.slice(this.currentIndex, this.currentIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IgdbService } from '../igdb.service';
+import { IgdbService } from 'src/app/igdb.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-ps2-games',
+  templateUrl: './ps2-games.component.html',
+  styleUrls: ['./ps2-games.component.scss'],
 })
-
-export class HomePage implements OnInit {
-  trendingGames: any[] = [];
-  visibleTrendingGames: any[] = [];
+export class Ps2GamesComponent implements OnInit {
+  ps2Games: any[] = [];
+  visiblePs2Games: any[] = [];
   currentIndex: number = 0;
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
   async ngOnInit() {
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
-      this.trendingGames = games;
+    this.igdbService.getPs2Games().subscribe((games) => {
+      this.ps2Games = games;
       this.updateVisibleGames();
     });
   }
 
   nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
+    if (this.currentIndex + 4 < this.ps2Games.length) {
       this.currentIndex += 1;
       this.updateVisibleGames();
     }
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+    this.visiblePs2Games = this.ps2Games.slice(this.currentIndex, this.currentIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

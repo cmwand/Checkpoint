@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IgdbService } from '../igdb.service';
+import { IgdbService } from '../../igdb.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-Gc-games',
+  templateUrl: './Gc-games.component.html',
+  styleUrls: ['./Gc-games.component.scss'],
 })
-
-export class HomePage implements OnInit {
-  trendingGames: any[] = [];
-  visibleTrendingGames: any[] = [];
+export class GcGamesComponent implements OnInit {
+  GcGames: any[] = [];
+  visibleGcGames: any[] = [];
   currentIndex: number = 0;
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
   async ngOnInit() {
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
-      this.trendingGames = games;
+    this.igdbService.getGcGames().subscribe((games) => {
+      this.GcGames = games;
       this.updateVisibleGames();
     });
   }
 
   nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
+    if (this.currentIndex + 4 < this.GcGames.length) {
       this.currentIndex += 1;
       this.updateVisibleGames();
     }
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+    this.visibleGcGames = this.GcGames.slice(this.currentIndex, this.currentIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

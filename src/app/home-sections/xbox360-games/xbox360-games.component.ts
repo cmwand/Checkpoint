@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IgdbService } from '../igdb.service';
+import { IgdbService } from '../../igdb.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-Xbox360-games',
+  templateUrl: './Xbox360-games.component.html',
+  styleUrls: ['./Xbox360-games.component.scss'],
 })
-
-export class HomePage implements OnInit {
-  trendingGames: any[] = [];
-  visibleTrendingGames: any[] = [];
+export class Xbox360GamesComponent implements OnInit {
+  Xbox360Games: any[] = [];
+  visibleXbox360Games: any[] = [];
   currentIndex: number = 0;
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
   async ngOnInit() {
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
-      this.trendingGames = games;
+    this.igdbService.getXbox360Games().subscribe((games) => {
+      this.Xbox360Games = games;
       this.updateVisibleGames();
     });
   }
 
   nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
+    if (this.currentIndex + 4 < this.Xbox360Games.length) {
       this.currentIndex += 1;
       this.updateVisibleGames();
     }
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+    this.visibleXbox360Games = this.Xbox360Games.slice(this.currentIndex, this.currentIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

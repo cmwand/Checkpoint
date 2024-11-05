@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IgdbService } from '../igdb.service';
+import { IgdbService } from '../../igdb.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-Snes-games',
+  templateUrl: './Snes-games.component.html',
+  styleUrls: ['./Snes-games.component.scss'],
 })
-
-export class HomePage implements OnInit {
-  trendingGames: any[] = [];
-  visibleTrendingGames: any[] = [];
+export class SnesGamesComponent implements OnInit {
+  SnesGames: any[] = [];
+  visibleSnesGames: any[] = [];
   currentIndex: number = 0;
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
   async ngOnInit() {
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
-      this.trendingGames = games;
+    this.igdbService.getSnesGames().subscribe((games) => {
+      this.SnesGames = games;
       this.updateVisibleGames();
     });
   }
 
   nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
+    if (this.currentIndex + 4 < this.SnesGames.length) {
       this.currentIndex += 1;
       this.updateVisibleGames();
     }
@@ -38,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+    this.visibleSnesGames = this.SnesGames.slice(this.currentIndex, this.currentIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

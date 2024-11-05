@@ -1,0 +1,50 @@
+.ps4-games-section {
+    text-align: center;
+    color: #00e5ff;
+  }
+  
+  .ps4-games-section h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #00e5ff;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  .ps4-games-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .arrow-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #00e5ff;
+    cursor: pointer;
+  }
+  
+  .game-list {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    gap: 1rem;
+  }
+  
+  .game-item {
+    width: 100px;
+    text-align: center;
+  }
+  
+  .game-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .game-item p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
