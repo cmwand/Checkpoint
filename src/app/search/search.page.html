@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="search-box">
-    <ion-icon name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
+    <ion-icon name="arrow-back-outline" class="back-icon" size="small" [routerLink]="['/home']"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -16,5 +16,5 @@
         <p *ngIf="game.first_release_date">{{ game.first_release_date * 1000 | date: 'yyyy' }}</p>
       </ion-label>
     </ion-item>
-  </ion-list>  
+  </ion-list>
 </ion-content>

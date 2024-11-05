@@ -1,7 +1,61 @@
-body{
+body {
     background: #002525;
-}
+  }
+  
+  .card-game {
+    --background: linear-gradient(#000000, #002525);
+  }
+  
+  .info-game {
+    color: #002525;
+    font-family: "Libre Baskerville", serif;
+  }
+  
+  .image-text-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .img-shown {
+    border: 1px solid #00ffff;
+    border-radius: 2px;
+    width: 30%;
+    height: auto;
+  }
+  
 
-.capa{
-    margin-left: 70%;
-}
+  .game-details {
+    flex-grow: 1;
+  }
+  
+  .info-game p {
+    color: #008b8b;
+    font-family: "Libre Baskerville", serif;
+  }
+  
+  .type-game {
+    color: #008b8b;
+    font-family: "Libre Baskerville", serif;
+  }
+  
+  .ion-gamename {
+    color: #00ffff;
+    font-family: "Libre Baskerville", serif;
+    left: 5%;
+  }
+  
+  .img-game {
+    width: 375px;
+    height: 210px;
+    border: 1px solid;
+    border-radius: 2px;
+    border-color: #00ffff;
+  }
+  
+  .summary-game {
+    color: #008b8b;
+    font-family: "Libre Baskerville", serif;
+    align-self: center;
+  }
+  

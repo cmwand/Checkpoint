@@ -5,10 +5,14 @@
   align-items: center;
   padding: 20px;
   height: 100%;
-  background: linear-gradient(#002525, #0174d1);
+  background: linear-gradient(#00325a, #0174d1);
   border: 2px solid #00ffff;
   font-family: "Libre Baskerville", serif;
   color: #00ffff;
+  background: repeating-linear-gradient(0deg, transparent 6.5%, #00325a 7%, #00325a 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #0174d1 49%, #0174d1 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #0174d1 49%, #0174d1 51%, transparent 51%);
+  background-size: 6em 6em;
+  background-color: #00325a;
+  opacity: 1
 }
 
 ion-content {
@@ -25,13 +29,16 @@ height: 100%;
 
 .botao_ps {
  align-items: center;
-  border: 1px solid #002525;
+  border: 1px solid #00325a;
   border-radius: 5px;
-  color: #002525;
+  color: #00325a;
   padding: 24px 24px;
   font-size: 16px;
   display: flex;
-  background: linear-gradient(#0174d1, #00325a);
+  background: radial-gradient(circle at top,transparent 9%, #0064B5 10% ,#0064B5 15% , transparent 16%), radial-gradient(circle at bottom,transparent 19%, #0064B5 20% ,#0064B5 25% , transparent 26%), radial-gradient(circle at right,transparent 19%, #0064B5 20% ,#0064B5 25% , transparent 26%), radial-gradient(circle at left,transparent 9%, #0064B5 10% ,#0064B5 15% , transparent 16%);
+  background-size: 1em 1em;
+  background-color: #0174d1;
+  opacity: 1
 }
 
 .botao_ps span {
@@ -41,19 +48,20 @@ height: 100%;
   padding-bottom: 5%;
 }
 
-.icon {
+.icon_ps {
   width: 50%;
   height: 50%;
-  border: 2px solid #002525;
+  border: 2px solid #00325a;
   border-radius: 5px;
   justify-content: center;
+  background: linear-gradient(#00325a, #0174d1);
 }
 
 .botao_ps.selected {
   border: 1px solid #00ffff;
   border-radius: 5px;
   color: #00ffff;
-  .icon {
+  .icon_ps {
     border: 2px solid #00ffff;
     border-radius: 5px;
   }
