@@ -32,20 +32,19 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-/*@import "@ionic/angular/css/palettes/dark.system.css"; */
+@import "@ionic/angular/css/palettes/dark.always.css";
+@import "@ionic/angular/css/palettes/dark.class.css";
+@import "@ionic/angular/css/palettes/dark.system.css";
 /*@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap'); */
 
 ion-modal {
     --width: 80%;
     --height: 80%;
   }
-  
-:host{
-    --background: #000000;
-}
 
+:root.ios {
+    --ion-background-color: #001515;
+}
 
 @import './app/start/start.page.scss';
 @import './app/config/config.page.scss';
