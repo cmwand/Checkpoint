@@ -1,10 +1,11 @@
 .search{
-  margin-left: 90%;
+  margin-left: 93%;
   font-size: 24px;
 }
 
 ion-menu-button, ion-icon{
   color: #00ffff;
+  font-size: 18px;
 }
 button{
   background: none;
@@ -37,5 +38,21 @@ button ion-text{
 }
 
 .toolbar{
-  --background: #002525;
+  --background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
+  --background-size: 6em 6em;
+}
+
+.ion-padding{
+  --background-color: #008b8b;
+}
+
+.ion-search{
+  background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
+  background-size: 6em 6em;
+  background-color: #002525;
+  opacity: 1
+}
+
+ion-item{
+  --background: #000000;
 }

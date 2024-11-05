@@ -28,22 +28,22 @@ export class GameDetailsPage implements OnInit {
     let categoryName = '';
     
     switch (category) {
-      case 0: categoryName = 'Jogo'; break;
-      case 1: categoryName = 'DLC'; break;
-      case 2: categoryName = 'Expansão'; break;
-      case 3: categoryName = 'Bundle'; break;
-      case 4: categoryName = 'Expansão Standalone'; break;
-      case 5: categoryName = 'Mod'; break;
-      case 6: categoryName = 'Episódio'; break;
-      case 7: categoryName = 'Temporada'; break;
-      case 8: categoryName = 'Remake'; break;
-      case 9: categoryName = 'Remaster'; break;
-      case 10: categoryName = 'Jogo Expandido'; break;
-      case 11: categoryName = 'Port'; break;
-      case 12: categoryName = 'Fork'; break;
-      case 13: categoryName = 'Pacote'; break;
-      case 14: categoryName = 'Atualização'; break;
-      default: categoryName = 'Tipo Desconhecido'; break;
+      case 0: categoryName = ' Jogo'; break;
+      case 1: categoryName = ' DLC'; break;
+      case 2: categoryName = ' Expansão'; break;
+      case 3: categoryName = ' Bundle'; break;
+      case 4: categoryName = ' Expansão Standalone'; break;
+      case 5: categoryName = ' Mod'; break;
+      case 6: categoryName = ' Episódio'; break;
+      case 7: categoryName = ' Temporada'; break;
+      case 8: categoryName = ' Remake'; break;
+      case 9: categoryName = ' Remaster'; break;
+      case 10: categoryName = ' Jogo Expandido'; break;
+      case 11: categoryName = ' Port'; break;
+      case 12: categoryName = ' Fork'; break;
+      case 13: categoryName = ' Pacote'; break;
+      case 14: categoryName = ' Atualização'; break;
+      default: categoryName = ' Tipo Desconhecido'; break;
     }
 
     if (originalGameName && originalGameId) {

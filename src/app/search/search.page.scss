@@ -8,15 +8,12 @@ ion-searchbar{
 }
 
 .search-box{
-    --background: #002525;
-    --color: #00ffff;
-    --width: 120px;
-    --height: 12px;
+    --background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
+    --background-size: 6em 6em;
 }
 
 .games{
     --background: #002525;
-    --color: red;
 }
 .games-list{
     --ion-item-background: none;
@@ -25,4 +22,15 @@ ion-searchbar{
 body {
     background: var(--ion-background-color);
     --ion-background-color: #00ffff;
+}
+
+ion-menu-button, ion-icon {
+    --font-size: 24px;
+    --color: #00ffff;
+}
+
+.icon-inner, .ionicon, svg {
+    display: block;
+    height: 86.6%;
+    width: 86.6%;
 }
