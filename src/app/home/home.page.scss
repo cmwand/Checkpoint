@@ -43,7 +43,9 @@ button ion-text{
 }
 
 .ion-padding{
-  --background-color: #008b8b;
+  background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
+  background-size: 6em 6em;
+  background-color: #002525;
 }
 
 .ion-search{
@@ -57,14 +59,14 @@ ion-item{
   --background: #000000;
 }
 
-.trending-games-section {
+.games-section {  
+  color: #00ffff;
   text-align: center;
-  color: #00e5ff;
 }
 
-.trending-games-section h2 {
+.games-section h2 {
   font-size: 1.5rem;
-  border-bottom: 2px solid #00e5ff;
+  border-bottom: 2px solid #00ffff;
   display: inline-block;
   margin-bottom: 1rem;
 }
@@ -79,7 +81,7 @@ ion-item{
   background: none;
   border: none;
   font-size: 2rem;
-  color: #00e5ff;
+  color: #00ffff;
   cursor: pointer;
 }
 
@@ -105,4 +107,15 @@ ion-item{
 .game-item p {
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+.tool-title{
+  color: #00ffff;
+  font-family: "Libre Baskerville", serif;
+}
+
+.content-home{
+  background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
+  background-size: 6em 6em;
+  background-color: #002525;
 }

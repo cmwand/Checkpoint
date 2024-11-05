@@ -1,7 +1,7 @@
-<ion-menu contentId="main-content">
+<ion-menu contentId="main-content" size="small">
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+    <ion-toolbar class="toolbar">
+      <ion-title class="tool-title">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
@@ -33,12 +33,12 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-icon class="search" name="search-outline" [routerLink]="['/search']"></ion-icon>
+      <ion-icon class="search" name="search-outline" size="small" [routerLink]="['/search']"></ion-icon>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <div class="trending-games-section">
+  <ion-content class="content-home">
+    <div class="games-section">
       <h2>Jogos Populares - 2024</h2>
       <div class="trending-games-container">
         <button class="arrow-button" (click)="previousGame()">&#8249;</button>
@@ -51,9 +51,9 @@
         <button class="arrow-button" (click)="nextGame()">&#8250;</button>
       </div>
     </div>
-
-    <app-Pc-games></app-Pc-games>
-    <app-Mobile-games></app-Mobile-games>
-    
+    <div class="games-section">
+      <app-ps1-games></app-ps1-games>
+      <app-Mobile-games></app-Mobile-games>
+    </div>
   </ion-content>
 </div>
