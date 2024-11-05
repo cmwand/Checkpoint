@@ -1,40 +1,59 @@
-<div class="header">
-    <button class="menu">
-        <ion-icon name="menu-outline"></ion-icon>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <button>
+      <ion-icon class="profile" name="person-outline"></ion-icon><ion-text>Perfil</ion-text>
     </button>
-    <ion-menu contentId="main-content">
-        <ion-header>
-        </ion-header>
-        <ion-content class="ion-search">
-            <button>
-                <ion-icon class="profile"  name="person-outline"></ion-icon><ion-text>Perfil</ion-text>
-            </button>
-            <br>
-            <button>
-                <ion-icon class="wishlist" name="list-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
-            </button>
-            <br>
-            <button [routerLink]="['/search']">
-                <ion-icon class="search-menu" name="search-outline" ></ion-icon><ion-text>Busca</ion-text>
-            </button>
-            <br>
-            <button [routerLink]="['/config']">
-                
-                <ion-icon class="settings" name="settings-outline"></ion-icon><ion-text>Configurações</ion-text>
-            </button>
-            <br>
-            <button [routerLink]="['']">
-                <ion-icon class="endsession" name="log-out-outline"></ion-icon><ion-text>Encerrar sessão</ion-text>
-            </button>
-        </ion-content>
-      </ion-menu>
-      <div class="ion-page" id="main-content">
-        <ion-header>
-          <ion-toolbar class="toolbar">
-            <ion-buttons slot="start">
-              <ion-menu-button></ion-menu-button>
-            </ion-buttons>
-            <ion-icon class="search" name="search-outline" size="small" [routerLink]="['/search']"></ion-icon>
-          </ion-toolbar>
-        </ion-header>
+    <br>
+    <button>
+      <ion-icon class="wishlist" name="list-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
+    </button>
+    <br>
+    <button [routerLink]="['/search']">
+      <ion-icon class="search-menu" name="search-outline" ></ion-icon><ion-text>Busca</ion-text>
+    </button>
+    <br>
+    <button [routerLink]="['/config']">
+      <ion-icon class="settings" name="settings-outline"></ion-icon><ion-text>Configurações</ion-text>
+    </button>
+    <br>
+    <button [routerLink]="['']">
+      <ion-icon class="endsession" name="log-out-outline"></ion-icon><ion-text>Encerrar sessão</ion-text>
+    </button>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="toolbar">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-icon class="search" name="search-outline" [routerLink]="['/search']"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="trending-games-section">
+      <h2>Jogos Populares - 2024</h2>
+      <div class="trending-games-container">
+        <button class="arrow-button" (click)="previousGame()">&#8249;</button>
+        <div class="game-list">
+          <div *ngFor="let game of visibleTrendingGames" (click)="goToGameDetails(game.id)" class="game-item">
+            <img [src]="game.cover.url" alt="{{ game.name }}" />
+            <p>{{ game.name }}</p>
+          </div>
+        </div>
+        <button class="arrow-button" (click)="nextGame()">&#8250;</button>
+      </div>
+    </div>
+
+    <app-Pc-games></app-Pc-games>
+    <app-Mobile-games></app-Mobile-games>
+    
+  </ion-content>
 </div>
