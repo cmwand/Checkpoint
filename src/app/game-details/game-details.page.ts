@@ -10,18 +10,36 @@ import { IgdbService } from '../igdb.service';
 export class GameDetailsPage implements OnInit {
   game: any;
 
-  
   constructor(
     private route: ActivatedRoute,
     private igdbService: IgdbService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     const gameId = this.route.snapshot.paramMap.get('id');
     if (gameId) {
-      this.game = await this.igdbService.getGameDetails(Number(gameId));
-      console.log('Detalhes do jogo:', this.game);
+      this.igdbService.getGameDetails(Number(gameId)).subscribe(
+        game => {
+          this.game = game;
+          console.log('Detalhes do jogo:', this.game);
+        },
+        error => {
+          console.error('Erro ao obter detalhes do jogo:', error);
+        }
+      );
     }
+  }
+
+  getPlatformNames(): string {
+    return this.game && this.game.platforms
+      ? this.game.platforms.map((platform: any) => platform.name).join(', ')
+      : '';
+  }
+
+  getGenreNames(): string {
+    return this.game && this.game.genres
+      ? this.game.genres.map((genre: any) => genre.name).join(', ')
+      : '';
   }
 
   getCategoryName(category: number, originalGameName: string | null = null, originalGameId: number | null = null): string {
@@ -47,11 +65,9 @@ export class GameDetailsPage implements OnInit {
     }
 
     if (originalGameName && originalGameId) {
-        categoryName += ` de <a href="/game-details/${originalGameId}">${originalGameName}</a>`;
+      categoryName += ` de <a href="/game-details/${originalGameId}">${originalGameName}</a>`;
     }
 
     return categoryName;
-}
-
-
+  }
 }

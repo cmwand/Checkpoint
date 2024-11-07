@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { AboutPage } from '../about/about.page';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IgdbService } from '../igdb.service';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -10,17 +16,46 @@ import { NavController } from '@ionic/angular';
 })
 
 export class HomePage implements OnInit {
+  username: string = '';
   trendingGames: any[] = [];
   visibleTrendingGames: any[] = [];
   currentIndex: number = 0;
 
-  constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
+  constructor(private igdbService: IgdbService, private navCtrl: NavController, private router: Router, private modalController: ModalController, private afAuth: AngularFireAuth, private afs: AngularFirestore,) {}
 
   async ngOnInit() {
+    this.loadUsername();
     this.igdbService.getMostAnticipatedGames().subscribe((games) => {
       this.trendingGames = games;
       this.updateVisibleGames();
     });
+  }
+
+  loadUsername() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        const userId = user.uid;
+        this.afs.collection('users').doc(userId).valueChanges().subscribe(
+          (userData: any) => {
+            this.username = userData?.username || 'Usuário';
+          },
+        );
+      }
+    });
+  }
+
+  logout() {
+    this.afAuth.signOut().then(() => {
+      this.router.navigate(['/']);
+    })
+  }
+
+  async openAboutModal() {
+    const modal = await this.modalController.create({
+      component: AboutPage, 
+      cssClass: 'about-modal',
+    });
+    return await modal.present();
   }
 
   nextGame() {

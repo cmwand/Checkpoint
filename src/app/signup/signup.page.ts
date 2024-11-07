@@ -9,10 +9,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  email: string = ''; // Inicializando como string vazia
-  username: string = ''; // Inicializando como string vazia
-  password: string = ''; // Inicializando como string vazia
-  confirmPassword: string = ''; // Inicializando como string vazia
+  email: string = '';
+  username: string = '';
+  password: string = '';
+  confirmPassword: string = '';
 
   constructor(
     private modalController: ModalController,

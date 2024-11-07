@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchGames()"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="onSearchChange($event)"></ion-searchbar>
   <ion-list class="games-list">
     <ion-item class="games" *ngFor="let game of games" (click)="goToGameDetails(game.id)">
       <ion-thumbnail slot="start">

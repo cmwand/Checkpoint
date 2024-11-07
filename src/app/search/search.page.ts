@@ -1,22 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IgdbService } from '../igdb.service';
 import { NavController } from '@ionic/angular';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
 })
-export class SearchPage {
+export class SearchPage implements OnInit, OnDestroy {
   searchQuery: string = '';
   games: any[] = [];
+  private searchSubject = new Subject<string>();
 
   constructor(private igdbService: IgdbService, private navCtrl: NavController) {}
 
-  async searchGames() {
-    if (this.searchQuery.trim()) {
-      this.games = await this.igdbService.searchGames(this.searchQuery);
-    }
+  ngOnInit() {
+    this.searchSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((query) => this.igdbService.searchGames(query))
+    ).subscribe((games) => {
+      this.games = games;
+    });
+  }
+
+  ngOnDestroy() {
+    this.searchSubject.unsubscribe();
+  }
+
+  onSearchChange(event: any) {
+    this.searchSubject.next(this.searchQuery);
   }
 
   goToGameDetails(gameId: number) {

@@ -1,7 +1,7 @@
 <body>
   <ion-content>
     <button class="voltar">
-        <ion-icon name="arrow-back-outline" [routerLink]="['/search']"></ion-icon>
+        <ion-icon name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
     </button>
 
     <ion-card *ngIf="game" class="card-game">
@@ -13,14 +13,14 @@
         <div class="info-game">
           <div class="image-text-container">
             <img class="img-shown" *ngIf="game.cover?.url" [src]="game.cover.url" />
-            <div class="game-details">
-              <p *ngIf="game.first_release_date">Lançamento: {{ game.first_release_date * 1000 | date: 'dd/MM/yyyy' }}</p>
-              <p *ngIf="game?.involved_companies?.length">Desenvolvedora: {{ game.involved_companies[0].company.name }}</p>
-              <p>Plataforma xxxxxxxxxxxxxxxx</p>
-              <p>Gênero xxxxxxxxxxxxxxxx</p>        
+            <div class="game-details"> 
               <div class="type-game">
                 <b>Tipo:</b> 
                 <span [innerHTML]="getCategoryName(game.category, game.parent_game?.name, game.parent_game?.id)"></span>
+              <p *ngIf="game.first_release_date">Lançamento: {{ game.first_release_date * 1000 | date: 'dd/MM/yyyy' }}</p>
+              <p *ngIf="game?.involved_companies?.length">Desenvolvedora: {{ game.involved_companies[0].company.name }}</p>
+                     
+             
               </div>
             </div>
           </div>
@@ -29,8 +29,12 @@
       <br>
       <ion-card-title class="ion-gamename">{{ game.name }}</ion-card-title>
       <ion-card-content class="summary-game">
-        <b>{{ game.summary }}</b>
+        <b>{{ game.summary }}</b><br>
+        <br><p>Plataforma(s): {{ getPlatformNames() }}</p>
+        <br>
+        <p>Gênero(s): {{ getGenreNames() }}</p> 
       </ion-card-content>
+     
     </ion-card>
   </ion-content>
 </body>

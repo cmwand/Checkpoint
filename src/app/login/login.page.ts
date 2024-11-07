@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, NavController } from '@ionic/angular';
 import { SignupPage } from '../signup/signup.page';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginPage implements OnInit {
   constructor(
     private modalController: ModalController,
     private afAuth: AngularFireAuth,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
   ) {}
 
   closeModal() {
@@ -34,10 +36,10 @@ export class LoginPage implements OnInit {
 
   async login() {
     try {
-      // Faz a autenticação usando email e senha
       await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
       this.showAlert('Sucesso', 'Login realizado com sucesso!');
       this.closeModal();
+      this.navCtrl.navigateForward('/home');
     } catch (error) {
       this.handleFirebaseError(error);
     }

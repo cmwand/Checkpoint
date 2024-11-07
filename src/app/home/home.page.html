@@ -1,7 +1,7 @@
 <ion-menu contentId="main-content" size="small">
   <ion-header>
     <ion-toolbar class="toolbar">
-      <ion-title class="tool-title">Menu</ion-title>
+      <ion-title class="tool-title">Olá, {{ username }} </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
@@ -21,8 +21,11 @@
       <ion-icon class="settings" name="settings-outline"></ion-icon><ion-text>Configurações</ion-text>
     </button>
     <br>
-    <button [routerLink]="['']">
+    <button (click)="logout()">
       <ion-icon class="endsession" name="log-out-outline"></ion-icon><ion-text>Encerrar sessão</ion-text>
+    </button>
+    <button class="about-button" (click)="openAboutModal()">
+      <img src="assets/img/interrogas.png" class="about-img">
     </button>
   </ion-content>
 </ion-menu>
