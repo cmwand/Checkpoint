@@ -167,3 +167,8 @@ position: absolute;
     --width: 80%;
     --height: 80%;
   }
+
+  .selected {
+    border: 5px solid #008b8b;
+    border-radius: 4px;
+}

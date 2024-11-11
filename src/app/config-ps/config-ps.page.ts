@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-config-ps',
@@ -6,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./config-ps.page.scss'],
 })
 export class ConfigPsPage implements OnInit {
-
   selectedButtons: number[] = [];
 
   toggleSelection(buttonId: number) {
@@ -18,8 +20,21 @@ export class ConfigPsPage implements OnInit {
     }
   }
 
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) { }
 
-  constructor() { }
+  saveSelections() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        const userId = user.uid;
+        this.firestore.collection('userChoices').doc(userId).update({
+          selectedConsoles: firebase.firestore.FieldValue.arrayUnion(...this.selectedButtons)
+        });
+      }
+    });
+  }
 
   ngOnInit() {
   }

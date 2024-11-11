@@ -1,0 +1,40 @@
+ion-content{
+    --background: linear-gradient(#000000, #002525);
+}
+
+.foto, .nome{
+    margin-left: 37%;
+}
+
+.perfil_jz {
+    font-family: "Libre Baskerville", serif;
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(#002525, #008b8b);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+   }
+
+.perfil_ld{
+    font-family: "Libre Baskerville", serif;
+    position: absolute;
+    margin-top: 20%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(#002525, #008b8b);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.h1_jz{
+    margin-top: 15%;
+}
+
+.h1_ld{
+    margin-top: 30%;
+}

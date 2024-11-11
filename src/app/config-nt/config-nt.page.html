@@ -1,81 +1,81 @@
 <ion-content class="nintendo">
   <div class="button-container">
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(12)" (click)="toggleSelection(12)">
       <span>
         <b>NES</b>
       </span>
       <img src="assets/img/config/nt/nes.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(13)" (click)="toggleSelection(13)">
       <span>
         <b>SNES</b>
       </span>
       <img src="assets/img/config/nt/snes.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(14)" (click)="toggleSelection(14)">
       <span>
         <b>Nintendo 64</b>
       </span>
       <img src="assets/img/config/nt/n64.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(15)" (click)="toggleSelection(15)">
       <span>
         <b>Game Boy Color</b>
       </span>
       <img src="assets/img/config/nt/HANDHELDgbc.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(5)" (click)="toggleSelection(5)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(16)" (click)="toggleSelection(16)">
       <span>
         <b>Game Boy Advance</b>
       </span>
       <img src="assets/img/config/nt/HANDHELDgba.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(6)" (click)="toggleSelection(6)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(17)" (click)="toggleSelection(17)">
       <span>
         <b>GameCube</b>
       </span>
       <img src="assets/img/config/nt/gc.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(7)" (click)="toggleSelection(7)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(18)" (click)="toggleSelection(18)">
       <span>
         <b>Nintendo DS</b>
       </span>
       <img src="assets/img/config/nt/HANDHELDds.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(8)" (click)="toggleSelection(8)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(19)" (click)="toggleSelection(19)">
       <span>
         <b>Nintendo Wii</b>
       </span>
       <img src="assets/img/config/nt/wii.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(9)" (click)="toggleSelection(9)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(20)" (click)="toggleSelection(20)">
       <span>
         <b>Nintendo 3DS</b>
       </span>
       <img src="assets/img/config/nt/HANDHELD3ds.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(10)" (click)="toggleSelection(10)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(21)" (click)="toggleSelection(21)">
       <span>
         <b>Nintendo Wii U</b>
       </span>
       <img src="assets/img/config/nt/wiiu.png" class="icon_nt"/>
     </button>
     <br>
-    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(11)" (click)="toggleSelection(11)">
+    <button expand="block" class="botao_nt" [class.selected]="selectedButtons.includes(22)" (click)="toggleSelection(22)">
       <span>
         <b>Nintendo Switch</b>
       </span>
       <img src="assets/img/config/nt/switch.png" class="icon_nt"/>
     </button>
   </div>
-  <button class="botbotao_nt">AVANÇAR</button>
+  <button class="botbotao_nt" (click)="saveSelections()">AVANÇAR</button>
 </ion-content>

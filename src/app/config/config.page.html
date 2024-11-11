@@ -1,4 +1,5 @@
 <ion-content>
+    <ion-icon name="arrow-back-outline" class="back-icon" size="small" [routerLink]="['/home']"></ion-icon>
 <body class="body_config">
 <div class="bg_img">
 <!--<img src="assets/img/config_bg.png">-->
@@ -14,16 +15,15 @@
         <img src="assets/img/config/new_i/ps.png" class="img-logos" (click)="openPsModal()">
         <img src="assets/img/config/new_i/xbox.png" class="img-logos" (click)="openXbModal()">
         <img src="assets/img/config/new_i/nintendo.png" class="img-logos" (click)="openNtModal()">
-        <img src="assets/img/config/new_i/PC.png" class="img-logos">
+        <img src="assets/img/config/new_i/PC.png" class="img-logos" [class.selected]="selectedButtons.includes(23)" (click)="toggleSelection(23)"> 
     </div>
     <div class="img-mobile">
-        <img src="assets/img/config/new_i/mobile.png" class="img-logos">
+        <img src="assets/img/config/new_i/mobile.png" class="img-logos" [class.selected]="selectedButtons.includes(24)" (click)="toggleSelection(24)">
     </div>
 </div>
 <div class="botao-footer-grid">
-    <p class="botao-footer">LIMPAR</p>
-    <p class="botao-footer">SALVAR</p>
+    <p class="botao-footer" (click)="clearSelections()">LIMPAR</p>
+    <p class="botao-footer" (click)="saveSelections()">SALVAR</p>
 </div>
-
 </body>
 </ion-content>

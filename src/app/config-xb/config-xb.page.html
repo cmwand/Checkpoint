@@ -1,27 +1,27 @@
 <ion-content class="xbox">
   <div class="button-container">
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(1)" (click)="toggleSelection(1)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(8)" (click)="toggleSelection(8)">
       <span>
         <b>Xbox (Clássico)</b>
       </span>
       <img src="assets/img/config/xb/xbox.png" class="icon_xb"/>
     </button>
     <br>
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(2)" (click)="toggleSelection(2)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(9)" (click)="toggleSelection(9)">
       <span>
         <b>Xbox 360</b>
       </span>
       <img src="assets/img/config/xb/xbox360.png" class="icon_xb"/>
     </button>
     <br>
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(3)" (click)="toggleSelection(3)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(10)" (click)="toggleSelection(11)">
       <span>
         <b>Xbox One</b>
       </span>
       <img src="assets/img/config/xb/xboxone.png" class="icon_xb"/>
     </button>
     <br>
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(4)" (click)="toggleSelection(4)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(12)" (click)="toggleSelection(12)">
       <span>
         <b>Xbox Series X/S</b>
       </span>
@@ -29,5 +29,5 @@
     </button>
     <br>
   </div>
-  <button class="botbotao_xb">AVANÇAR</button>
+  <button class="botbotao_xb" (click)="saveSelections()">AVANÇAR</button>
 </ion-content>

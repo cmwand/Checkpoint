@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-config-xb',
@@ -7,6 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigXbPage implements OnInit {
   selectedButtons: number[] = [];
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) { }
 
   toggleSelection(buttonId: number) {
     const index = this.selectedButtons.indexOf(buttonId);
@@ -17,9 +25,17 @@ export class ConfigXbPage implements OnInit {
     }
   }
 
-  constructor() { }
+  saveSelections() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        const userId = user.uid;
+        this.firestore.collection('userChoices').doc(userId).update({
+          selectedConsoles: firebase.firestore.FieldValue.arrayUnion(...this.selectedButtons)
+        });
+      }
+    });
+  }
 
   ngOnInit() {
   }
-
 }

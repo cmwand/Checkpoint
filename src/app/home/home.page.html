@@ -1,15 +1,15 @@
 <ion-menu contentId="main-content" size="small">
   <ion-header>
     <ion-toolbar class="toolbar">
-      <ion-title class="tool-title">Olá, {{ username }} </ion-title>
+      <ion-title class="tool-title">Bem vindo (a), {{ username }} </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <button>
+    <button [routerLink]="['/profile']">
       <ion-icon class="profile" name="person-outline"></ion-icon><ion-text>Perfil</ion-text>
     </button>
     <br>
-    <button>
+    <button [routerLink]="['/wishlist']">
       <ion-icon class="wishlist" name="list-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
     </button>
     <br>
@@ -55,8 +55,78 @@
       </div>
     </div>
     <div class="games-section">
-      <app-ps1-games></app-ps1-games>
-      <app-Mobile-games></app-Mobile-games>
+      <div *ngIf="isConsoleSelected(1)">
+        <app-ps1-games></app-ps1-games>
+      </div>
+      <div *ngIf="isConsoleSelected(2)">
+        <app-ps2-games></app-ps2-games>
+      </div>
+      <div *ngIf="isConsoleSelected(3)">
+        <app-ps3-games></app-ps3-games>
+      </div>
+      <div *ngIf="isConsoleSelected(4)">
+        <app-psp-games></app-psp-games>
+      </div>
+      <div *ngIf="isConsoleSelected(5)">
+        <app-psvita-games></app-psvita-games>
+      </div>
+      <div *ngIf="isConsoleSelected(6)">
+        <app-ps4-games></app-ps4-games>
+      </div>
+      <div *ngIf="isConsoleSelected(7)">
+        <app-ps5-games></app-ps5-games>
+      </div>
+      <div *ngIf="isConsoleSelected(8)">
+        <app-xbox-games></app-xbox-games>
+      </div>
+      <div *ngIf="isConsoleSelected(9)">
+        <app-Xbox360-games></app-Xbox360-games>
+      </div>
+      <div *ngIf="isConsoleSelected(10)">
+        <app-XboxOne-games></app-XboxOne-games>
+      </div>
+      <div *ngIf="isConsoleSelected(11)">
+        <app-Xboxsx-games></app-Xboxsx-games>
+      </div>
+      <div *ngIf="isConsoleSelected(12)">
+        <app-Nes-games></app-Nes-games>
+      </div>
+      <div *ngIf="isConsoleSelected(13)">
+        <app-Snes-games></app-Snes-games>
+      </div>
+      <div *ngIf="isConsoleSelected(14)">
+        <app-n64-games></app-n64-games>
+      </div>
+      <div *ngIf="isConsoleSelected(15)">
+        <app-Gbc-games></app-Gbc-games>
+      </div>
+      <div *ngIf="isConsoleSelected(16)">
+        <app-Gba-games></app-Gba-games>
+      </div>
+      <div *ngIf="isConsoleSelected(17)">
+        <app-Gc-games></app-Gc-games>
+      </div>
+      <div *ngIf="isConsoleSelected(18)">
+        <app-Nds-games></app-Nds-games>
+      </div>
+      <div *ngIf="isConsoleSelected(19)">
+        <app-Wii-games></app-Wii-games>
+      </div>
+      <div *ngIf="isConsoleSelected(20)">
+        <app-n3ds-games></app-n3ds-games>
+      </div>
+      <div *ngIf="isConsoleSelected(21)">
+        <app-Wiiu-games></app-Wiiu-games>
+      </div>
+      <div *ngIf="isConsoleSelected(22)">
+        <app-Switch-games></app-Switch-games>
+      </div>
+      <div *ngIf="isConsoleSelected(23)">
+        <app-Pc-games></app-Pc-games>
+      </div>
+      <div *ngIf="isConsoleSelected(24)">
+        <app-Mobile-games></app-Mobile-games>
+      </div>
     </div>
   </ion-content>
 </div>

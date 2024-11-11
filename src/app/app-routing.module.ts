@@ -45,7 +45,19 @@ const routes: Routes = [
   {
     path: 'game-details/:id',
     loadChildren: () => import('./game-details/game-details.module').then(m => m.GameDetailsPageModule)
+  },  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'games-beaten',
+    loadChildren: () => import('./games-beaten/games-beaten.module').then( m => m.GamesBeatenPageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then( m => m.WishlistPageModule)
   }
+
 
 
 
