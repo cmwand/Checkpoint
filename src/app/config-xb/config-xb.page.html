@@ -1,5 +1,6 @@
 <ion-content class="xbox">
   <div class="button-container">
+    <p class="p-warn-config">Lembre-se de ir até o final desta página para salvar sua escolha!</p>
     <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(8)" (click)="toggleSelection(8)">
       <span>
         <b>Xbox (Clássico)</b>
@@ -14,14 +15,14 @@
       <img src="assets/img/config/xb/xbox360.png" class="icon_xb"/>
     </button>
     <br>
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(10)" (click)="toggleSelection(11)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(10)" (click)="toggleSelection(10)">
       <span>
         <b>Xbox One</b>
       </span>
       <img src="assets/img/config/xb/xboxone.png" class="icon_xb"/>
     </button>
     <br>
-    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(12)" (click)="toggleSelection(12)">
+    <button expand="block" class="botao_xb" [class.selected]="selectedButtons.includes(11)" (click)="toggleSelection(11)">
       <span>
         <b>Xbox Series X/S</b>
       </span>

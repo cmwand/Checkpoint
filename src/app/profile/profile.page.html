@@ -2,14 +2,14 @@
   <ion-content>
     <ion-icon name="arrow-back-outline" class="back-icon" size="large" [routerLink]="['/home']"></ion-icon>
     <div class="foto">
-      <img src="assets/img/profile_placeholder.png">
+      <img class="img-pfp" src="assets/img/logoindex.png">
     </div>
     <div class="nome">
-       <h1>{{ username }}</h1>
+       <h1>Bem vindo ao seu perfil, {{ username }}!</h1>
     </div>
-    <button class="perfil_jz" [routerLink]="['/games-beaten']">Jogos zerados</button>
-    <h1 class="h1_jz">Últimos adicionados:</h1>
-    <button class="perfil_ld" [routerLink]="['/wishlist']" >Lista de desejos</button>
-    <h1 class="h1_ld">Últimos adicionados:</h1>
+      <h1 class="h1_jz">Últimos adicionados:</h1>
+      <button class="perfil_jz" [routerLink]="['/games-beaten']">Jogos zerados</button>
+      <h1 class="h1_ld">Últimos adicionados:</h1>     
+      <button class="perfil_ld" [routerLink]="['/wishlist']" >Lista de desejos</button>
 </ion-content>
 </body>
