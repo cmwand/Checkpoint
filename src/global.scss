@@ -73,6 +73,39 @@ ion-modal {
   text-align: center;
 }
 
+.sc-ion-alert-md-h {
+  --background: #002525;
+  --max-width: 280px;
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+  font-size: 0.875rem;
+  --border: 2px solid #00ffff;
+}
+
+//ALERT
+
+.alert-button.sc-ion-alert-ios:last-child, .alert-button-inner.sc-ion-alert-md {
+  border-right: 0;
+  font-weight: bold;
+  color: #00ffff;
+  font-family: "Libre Baskerville", serif;
+}
+
+.alert-title.sc-ion-alert-md {
+  color: #00ffff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: "Libre Baskerville", serif;
+}
+
+@media screen and (max-width: 767px) {
+  .alert-message.sc-ion-alert-md {
+      max-height: 266px;
+      color: #008b8b;
+      font-family: "Libre Baskerville", serif;
+  }
+}
+
+
 @import './app/start/start.page.scss';
 @import './app/config/config.page.scss';
 @import './app/home/home.page.scss';
