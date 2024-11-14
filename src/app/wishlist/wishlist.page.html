@@ -1,2 +1,18 @@
-<ion-icon name="arrow-back-outline" class="back-icon" size="large" [routerLink]="['/home']"></ion-icon>
-<h1>ae ne</h1>
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Desejos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let game of wishlist$ | async">
+          <ion-card (click)="goToGameDetails(game.id)">
+            <img [src]="game.cover?.url" alt="Poster do Jogo" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
