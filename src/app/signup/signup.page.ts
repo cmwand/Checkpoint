@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -18,7 +18,8 @@ export class SignupPage implements OnInit {
     private modalController: ModalController,
     private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private loadingController: LoadingController
   ) {}
 
   closeModal() {
@@ -31,6 +32,11 @@ export class SignupPage implements OnInit {
       return;
     }
 
+    const loading = await this.loadingController.create({
+      message: 'Carregando...',
+    });
+    await loading.present();
+
     try {
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(
         this.email,
@@ -39,12 +45,14 @@ export class SignupPage implements OnInit {
 
       await this.firestore.collection('users').doc(userCredential.user?.uid).set({
         email: this.email,
-        username: this.username
+        username: this.username,
       });
 
+      await loading.dismiss();
       this.showAlert('Sucesso', 'Usuário criado com sucesso!');
       this.closeModal();
     } catch (error) {
+      await loading.dismiss();
       this.handleFirebaseError(error);
     }
   }
