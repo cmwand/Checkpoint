@@ -5,6 +5,10 @@ body {
   .card-game {
     --background: linear-gradient(#000000, #002525);
   }
+
+  .voltar{
+    margin-left: 2%;
+  }
   
   .info-game {
     color: #002525;
@@ -70,7 +74,20 @@ body {
   font-family: "Libre Baskerville", serif;
 }
 
+.add {
+  --background: #002525;
+  --color: #ffffff;
+}
 
+.gd-bg{
+  --background: linear-gradient(135deg, #00343480 50%, transparent 0),linear-gradient(-135deg, #00343480 50%, transparent 0);
+  --background-size: 6em 6em;
+  --opacity: 1
+}
+
+.fab-gd ion-fab-list {
+  transform: translateY(-60px);
+}
 
 
 

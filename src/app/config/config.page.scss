@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.back-icon{
+    margin-left: 2%;
+  }
+
 .toolbar-config{
     --background: repeating-linear-gradient(0deg, transparent 6.5%, #002525 7%, #002525 9%, transparent 10%), linear-gradient(45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #008B8b 49%, #008B8b 51%, transparent 51%);
     --background-size: 6em 6em;

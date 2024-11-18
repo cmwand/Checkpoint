@@ -1,7 +1,7 @@
 <body>
-  <ion-content>
+  <ion-content class="gd-bg">
     <ion-toolbar class="toolbar-gd">
-      <ion-icon name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
+      <ion-icon class="voltar" name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
     </ion-toolbar>
 
     <ion-card *ngIf="game" class="card-game">
@@ -37,7 +37,7 @@
       
     </ion-card>
     <ion-fab class="fab-gd" vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button>
+      <ion-fab-button class="add">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="top">
@@ -49,6 +49,5 @@
         </ion-fab-button>
       </ion-fab-list>
     </ion-fab>
-    
   </ion-content>
 </body>
