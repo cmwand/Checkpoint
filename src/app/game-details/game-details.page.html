@@ -1,8 +1,8 @@
 <body>
   <ion-content>
-    <button class="voltar">
-        <ion-icon name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
-    </button>
+    <ion-toolbar class="toolbar-gd">
+      <ion-icon name="arrow-back-outline" [routerLink]="['/home']"></ion-icon>
+    </ion-toolbar>
 
     <ion-card *ngIf="game" class="card-game">
       <img class="img-game" *ngIf="game?.screenshots?.length" [src]="game.screenshots[0].url" />

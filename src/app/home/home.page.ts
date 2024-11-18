@@ -7,8 +7,6 @@ import { IgdbService } from '../igdb.service';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -17,17 +15,20 @@ import { Router } from '@angular/router';
 
 export class HomePage implements OnInit {
   username: string = '';
+  profileImage: string = 'assets/img/icons/default.png'; // Imagem padrão
   trendingGames: any[] = [];
   visibleTrendingGames: any[] = [];
   selectedConsoles: number[] = [];
   currentIndex: number = 0;
 
-  constructor(private igdbService: IgdbService, 
-    private navCtrl: NavController, 
-    private router: Router, 
-    private modalController: ModalController, 
-    private afAuth: AngularFireAuth, 
-    private afs: AngularFirestore,) {}
+  constructor(
+    private igdbService: IgdbService,
+    private navCtrl: NavController,
+    private router: Router,
+    private modalController: ModalController,
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore
+  ) {}
 
   async ngOnInit() {
     this.loadUsername();
@@ -41,17 +42,11 @@ export class HomePage implements OnInit {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         const userId = user.uid;
-        this.afs.collection('users').doc(userId).valueChanges().subscribe(
-          (userData: any) => {
-            this.username = userData?.username || 'Usuário';
-          },
-        );
-      }
-    });
+        this.afs.collection('users').doc(userId).valueChanges().subscribe((userData: any) => {
+          this.username = userData?.username || 'Usuário';
+          this.profileImage = userData?.profileImage || this.profileImage;
+        });
 
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        const userId = user.uid;
         this.afs.collection('userChoices').doc(userId).valueChanges().subscribe((data: any) => {
           this.selectedConsoles = data?.selectedConsoles || [];
         });
@@ -66,12 +61,12 @@ export class HomePage implements OnInit {
   logout() {
     this.afAuth.signOut().then(() => {
       this.router.navigate(['/']);
-    })
+    });
   }
 
   async openAboutModal() {
     const modal = await this.modalController.create({
-      component: AboutPage, 
+      component: AboutPage,
       cssClass: 'about-modal',
     });
     return await modal.present();

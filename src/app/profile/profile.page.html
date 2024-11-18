@@ -1,15 +1,27 @@
 <body>
   <ion-content>
-    <ion-icon name="arrow-back-outline" class="back-icon" size="small" [routerLink]="['/home']"></ion-icon>
+    <ion-toolbar class="toolbar-pf">
+      <ion-icon name="arrow-back-outline" class="back-icon" size="small" [routerLink]="['/home']"></ion-icon>
+    </ion-toolbar>
     <div class="foto">
-      <img class="img-pfp" src="assets/img/logoindex.png">
+      <img src="assets/img/logoindex.png">
     </div>
     <div class="nome">
-       <h1>Bem vindo ao seu perfil, {{ username }}!</h1>
+       <h1>Bem vindo ao seu perfil, {{ username }}! Selecione um ícone!</h1>
     </div>
-      <h1 class="h1_jz">Últimos adicionados:</h1>
-      <button class="perfil_jz" [routerLink]="['/games-beaten']">Meus jogos</button>
-      <h1 class="h1_ld">Últimos adicionados:</h1>     
-      <button class="perfil_ld" [routerLink]="['/wishlist']" >Lista de desejos</button>
+
+  <div class="image-gallery">
+    <div *ngFor="let image of imageList" class="image-option" (click)="selectImage(image)">
+      <img [src]="image" class="image-thumbnail">
+    </div>
+  </div>
+
+  <div class="selected-image">
+    <img [src]="selectedImage" class="img-pfp">
+  </div>
+  <div class="button-container-pfp">
+    <button class="perfil_jz" [routerLink]="['/games-beaten']">Meus jogos</button>
+    <button class="perfil_ld" [routerLink]="['/wishlist']">Lista de desejos</button>
+  </div>  
 </ion-content>
 </body>

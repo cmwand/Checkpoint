@@ -10,9 +10,8 @@
     font-family: "Libre Baskerville", serif;
 }
 
-#background-content {
-    background: linear-gradient(135deg, #00343480 50%, transparent 0),linear-gradient(-135deg, #00343480 50%, transparent 0);
-    background-size: 6em 6em;
-    background-color: #00ffff;
-    opacity: 1
+.gb-bg{
+    --background: linear-gradient(135deg, #00343480 50%, transparent 0),linear-gradient(-135deg, #00343480 50%, transparent 0);
+    --background-size: 6em 6em;
+    --opacity: 1
 }
