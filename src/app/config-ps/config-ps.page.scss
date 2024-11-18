@@ -70,8 +70,11 @@ height: 100%;
 .botbotao_ps {
   font-family: "Libre Baskerville", serif;
   bottom: 35px;
-  left: 32%;
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  bottom: 10px;
   align-content: center;
   position:relative;
   padding: 10px 20px;
