@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-config-nt',
@@ -22,6 +23,7 @@ export class ConfigNtPage implements OnInit {
 
   constructor(
     private afAuth: AngularFireAuth,
+    private modalController: ModalController,
     private firestore: AngularFirestore
   ) { }
 
@@ -34,6 +36,7 @@ export class ConfigNtPage implements OnInit {
         });
       }
     });
+    this.modalController.dismiss();
   }
 
   ngOnInit() {

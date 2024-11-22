@@ -18,7 +18,7 @@ export class SearchPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.searchSubject.pipe(
-      debounceTime(300),
+      debounceTime(800),
       distinctUntilChanged(),
       switchMap((query) => this.igdbService.searchGames(query))
     ).subscribe((games) => {
