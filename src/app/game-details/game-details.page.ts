@@ -147,6 +147,7 @@ export class GameDetailsPage implements OnInit {
       message,
       duration: 2000,
       position: 'top',
+      cssClass: 'custom-loading',
     });
     await toast.present();
   }
