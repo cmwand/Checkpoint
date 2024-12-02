@@ -63,8 +63,8 @@ export class HomePage implements OnInit {
           this.profileImage = userData?.profileImage || this.profileImage;
         });
 
-        this.afs.collection('userChoices').doc(userId).valueChanges().subscribe((data: any) => {
-          this.selectedConsoles = data?.selectedConsoles || [];
+        this.afs.collection('users').doc(userId).valueChanges().subscribe((data: any) => {
+          this.selectedConsoles = data?.choices?.selectedConsoles || [];
         });
       }
     });

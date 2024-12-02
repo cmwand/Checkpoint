@@ -34,6 +34,7 @@ export class SignupPage implements OnInit {
 
     const loading = await this.loadingController.create({
       message: 'Carregando...',
+      cssClass: 'custom-loading',
     });
     await loading.present();
 

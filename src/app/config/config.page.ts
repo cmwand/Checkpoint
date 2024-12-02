@@ -47,28 +47,42 @@ export class ConfigPage implements OnInit {
   }
 
   saveSelections() {
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe((user) => {
       if (user) {
         const userId = user.uid;
-        this.afs.collection('userChoices').doc(userId).set({
-          selectedConsoles: firebase.firestore.FieldValue.arrayUnion(...this.selectedButtons)
-        }, { merge: true });
+        this.afs
+          .collection('users')
+          .doc(userId)
+          .set(
+            {
+              choices: {
+                selectedConsoles: firebase.firestore.FieldValue.arrayUnion(...this.selectedButtons)
+              },
+            },
+            { merge: true }
+          )
       }
     });
   }
 
   clearSelections() {
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe((user) => {
       if (user) {
         const userId = user.uid;
-        this.afs.collection('userChoices').doc(userId).update({
-          selectedConsoles: []
-        });
+        this.afs
+          .collection('users')
+          .doc(userId)
+          .set(
+            {
+              choices: {
+                selectedConsoles: []
+              },
+            },
+            { merge: true }
+          )
       }
     });
   }
-  
-  
 
   async openPsModal() {
     const modal = await this.modalController.create({

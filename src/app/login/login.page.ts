@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
   async login() {
     const loading = await this.loadingController.create({
       message: 'Carregando...',
+      cssClass: 'custom-loading',
     });
     await loading.present();
 
