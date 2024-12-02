@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { AboutPage } from '../about/about.page';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -12,10 +13,9 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
 export class HomePage implements OnInit {
   username: string = '';
-  profileImage: string = 'assets/img/icons/default.png'; // Imagem padrão
+  profileImage: string = 'assets/img/icons/default.png';
   trendingGames: any[] = [];
   visibleTrendingGames: any[] = [];
   selectedConsoles: number[] = [];
@@ -27,15 +27,31 @@ export class HomePage implements OnInit {
     private router: Router,
     private modalController: ModalController,
     private afAuth: AngularFireAuth,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private loadingCtrl: LoadingController
   ) {}
 
   async ngOnInit() {
     this.loadUsername();
+    await this.showLoading();
     this.igdbService.getMostAnticipatedGames().subscribe((games) => {
       this.trendingGames = games;
       this.updateVisibleGames();
+      this.hideLoading();
     });
+  }
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Entrando em contato com os servidores da Twitch, por favor aguarde...',
+      spinner: 'crescent',
+      cssClass: 'custom-loading',
+    });
+    await loading.present();
+  }
+
+  async hideLoading() {
+    await this.loadingCtrl.dismiss();
   }
 
   loadUsername() {
@@ -56,12 +72,6 @@ export class HomePage implements OnInit {
 
   isConsoleSelected(consoleId: number): boolean {
     return this.selectedConsoles.includes(consoleId);
-  }
-
-  logout() {
-    this.afAuth.signOut().then(() => {
-      this.router.navigate(['/']);
-    });
   }
 
   async openAboutModal() {

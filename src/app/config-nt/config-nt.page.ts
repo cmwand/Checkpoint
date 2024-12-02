@@ -24,6 +24,7 @@ export class ConfigNtPage implements OnInit {
   constructor(
     private afAuth: AngularFireAuth,
     private modalController: ModalController,
+    private afs: AngularFirestore,
     private firestore: AngularFirestore
   ) { }
 
@@ -31,9 +32,9 @@ export class ConfigNtPage implements OnInit {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         const userId = user.uid;
-        this.firestore.collection('userChoices').doc(userId).update({
+        this.afs.collection('userChoices').doc(userId).set({
           selectedConsoles: firebase.firestore.FieldValue.arrayUnion(...this.selectedButtons)
-        });
+        }, { merge: true });
       }
     });
     this.modalController.dismiss();
