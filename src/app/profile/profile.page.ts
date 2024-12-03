@@ -20,7 +20,7 @@ export class ProfilePage implements OnInit {
     'assets/img/icons/dante.jpg',
     'assets/img/icons/ellie.png',
     'assets/img/icons/frisk.png',
-    'assets/img/icons/jill.png',
+    'assets/img/icons/valerie.jpg',
     'assets/img/icons/joker.jpg',
     'assets/img/icons/kirby.png',
     'assets/img/icons/knuckles.jpg',
