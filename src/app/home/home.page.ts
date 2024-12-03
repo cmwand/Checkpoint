@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     this.loadUsername();
     await this.showLoading();
-    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
+    this.igdbService. getTrendingGames().subscribe((games) => {
       this.trendingGames = games;
       this.updateVisibleGames();
       this.hideLoading();

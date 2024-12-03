@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +12,7 @@ import { map } from 'rxjs/operators';
 
 export class IgdbService {
   private gamesUrl = environment.igdb.gamesUrl;
+  private trendingUrl = environment.igdb.trendingUrl;
   private headers = new HttpHeaders({
     'Client-ID': environment.igdb.clientId,
     'Authorization': `Bearer ${environment.igdb.token}`,
@@ -56,16 +59,45 @@ export class IgdbService {
     );
   }
 
-  getMostAnticipatedGames() {
-    const body = `fields name, cover.url, rating, aggregated_rating_count, first_release_date;
-              sort rating desc;
-              where aggregated_rating != null 
-              & category = (0)
-              & aggregated_rating_count > 6
-              & first_release_date >= 1704067200
-              & first_release_date <= 1735689599;`;
-    return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+  getTrendingGames(): Observable<any[]> {
+    const popularityBody = `
+      fields game_id, value, popularity_type;
+      sort value desc;
+      where popularity_type = 1 | popularity_type = 3;
+      limit 20;
+    `;
+  
+    return this.http.post<any[]>(this.trendingUrl, popularityBody, { headers: this.headers }).pipe(
+      map((popularityData) => {
+        if (!popularityData || popularityData.length === 0) {
+          throw new Error("Nenhum dado de popularidade encontrado.");
+        }
+        const gameIds = popularityData.map((item) => item.game_id);
+        return gameIds;
+      }),
+      switchMap((gameIds) => {
+        const detailsBody = `
+          fields id, name, cover.url, first_release_date, summary, rating, genres.name, platforms.name;
+          where id = (${gameIds.join(',')});
+        `;
+        return this.http.post<any[]>(this.gamesUrl, detailsBody, { headers: this.headers });
+      }),
+      map((games) => {
+        if (!games || games.length === 0) {
+          throw new Error("Nenhum detalhe de jogo encontrado.");
+        }
+        games.forEach(game => {
+          if (game.cover && game.cover.url) {
+            game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+          }
+        });
+  
+        return games;
+      })
+    );
   }
+  
+  
 
   ////////////////////////////////////// Sessão Componentes PLAYSTATION/SONY //////////////////////////////////////////////////////////////////
   getPs1Games() {
