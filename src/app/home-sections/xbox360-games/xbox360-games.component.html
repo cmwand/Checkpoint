@@ -4,7 +4,7 @@
     <button class="arrow-button" (click)="previousGame()">&#8249;</button>
     <div class="game-list">
       <div *ngFor="let game of visibleXbox360Games" (click)="goToGameDetails(game.id)" class="game-item">
-        <img [src]="game.cover.url" alt="{{ game.name }}" />
+        <img class="game-img" [src]="game.cover.url" alt="{{ game.name }}" />
         <!--<p>{{ game.name }}</p>-->
       </div>
     </div>

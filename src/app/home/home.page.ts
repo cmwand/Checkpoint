@@ -18,8 +18,11 @@ export class HomePage implements OnInit {
   profileImage: string = 'assets/img/icons/default.png';
   trendingGames: any[] = [];
   visibleTrendingGames: any[] = [];
+  anticipatedGames: any[] = [];
+  visibleAnticipatedGames: any[] = [];
   selectedConsoles: number[] = [];
-  currentIndex: number = 0;
+  currentTrendingIndex: number = 0;
+  currentAnticipatedIndex: number = 0;
 
   constructor(
     private igdbService: IgdbService,
@@ -34,11 +37,19 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     this.loadUsername();
     await this.showLoading();
-    this.igdbService. getTrendingGames().subscribe((games) => {
+
+    // Obter jogos populares e mais aguardados
+    this.igdbService.getTrendingGames().subscribe((games) => {
       this.trendingGames = games;
-      this.updateVisibleGames();
-      this.hideLoading();
+      this.updateVisibleTrendingGames();
     });
+
+    this.igdbService.getMostAnticipatedGames().subscribe((games) => {
+      this.anticipatedGames = games;
+      this.updateVisibleAnticipatedGames();
+    });
+
+    this.hideLoading();
   }
 
   async showLoading() {
@@ -82,22 +93,32 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  nextGame() {
-    if (this.currentIndex + 4 < this.trendingGames.length) {
-      this.currentIndex += 1;
-      this.updateVisibleGames();
+  nextGame(section: string) {
+    if (section === 'trending' && this.currentTrendingIndex + 4 < this.trendingGames.length) {
+      this.currentTrendingIndex += 1;
+      this.updateVisibleTrendingGames();
+    } else if (section === 'anticipated' && this.currentAnticipatedIndex + 4 < this.anticipatedGames.length) {
+      this.currentAnticipatedIndex += 1;
+      this.updateVisibleAnticipatedGames();
     }
   }
 
-  previousGame() {
-    if (this.currentIndex > 0) {
-      this.currentIndex -= 1;
-      this.updateVisibleGames();
+  previousGame(section: string) {
+    if (section === 'trending' && this.currentTrendingIndex > 0) {
+      this.currentTrendingIndex -= 1;
+      this.updateVisibleTrendingGames();
+    } else if (section === 'anticipated' && this.currentAnticipatedIndex > 0) {
+      this.currentAnticipatedIndex -= 1;
+      this.updateVisibleAnticipatedGames();
     }
   }
 
-  updateVisibleGames() {
-    this.visibleTrendingGames = this.trendingGames.slice(this.currentIndex, this.currentIndex + 4);
+  updateVisibleTrendingGames() {
+    this.visibleTrendingGames = this.trendingGames.slice(this.currentTrendingIndex, this.currentTrendingIndex + 4);
+  }
+
+  updateVisibleAnticipatedGames() {
+    this.visibleAnticipatedGames = this.anticipatedGames.slice(this.currentAnticipatedIndex, this.currentAnticipatedIndex + 4);
   }
 
   goToGameDetails(gameId: number) {

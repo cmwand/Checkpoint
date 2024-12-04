@@ -49,14 +49,24 @@
     <div class="games-section">
       <h2>Populares no momento</h2>
       <div class="trending-games-container">
-        <button class="arrow-button" (click)="previousGame()">&#8249;</button>
+        <button class="arrow-button" (click)="previousGame('trending')">&#8249;</button>
         <div class="game-list">
           <div *ngFor="let game of visibleTrendingGames" (click)="goToGameDetails(game.id)" class="game-item">
             <img class="game-img" [src]="game.cover.url" alt="{{ game.name }}" />
-            <!--<p>{{ game.name }}</p>-->
           </div>
         </div>
-        <button class="arrow-button" (click)="nextGame()">&#8250;</button>
+        <button class="arrow-button" (click)="nextGame('trending')">&#8250;</button>
+      </div>
+  
+      <h2>Mais aguardados</h2>
+      <div class="trending-games-container">
+        <button class="arrow-button" (click)="previousGame('anticipated')">&#8249;</button>
+        <div class="game-list">
+          <div *ngFor="let game of visibleAnticipatedGames" (click)="goToGameDetails(game.id)" class="game-item">
+            <img class="game-img" [src]="game.cover.url" alt="{{ game.name }}" />
+          </div>
+        </div>
+        <button class="arrow-button" (click)="nextGame('anticipated')">&#8250;</button>
       </div>
     </div>
     <div class="games-section">

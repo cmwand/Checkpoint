@@ -81,9 +81,11 @@ ion-item{
 .arrow-button {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #00ffff;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .game-list {
@@ -128,6 +130,11 @@ ion-item{
   font-size: 24px;
   top: -32px;
   position: relative;
+}
+
+.game-img{
+  width: auto;
+  height: auto;
 }
 
 .custom-loading {

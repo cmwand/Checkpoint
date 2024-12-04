@@ -97,6 +97,26 @@ export class IgdbService {
     );
   }
   
+  getMostAnticipatedGames(): Observable<any[]> {
+    const currentDate = Math.floor(Date.now() / 1000); // Obtém a data atual em segundos
+  
+    const anticipatedBody = `
+      fields id, name, cover.url, first_release_date, summary, rating, genres.name, platforms.name;
+      where first_release_date > ${currentDate};
+      sort hypes desc;
+      limit 20;
+    `;
+  
+    return this.http.post<any[]>(this.gamesUrl, anticipatedBody, { headers: this.headers }).pipe(
+      map((games) => {
+        if (!games || games.length === 0) {
+          throw new Error("Nenhum jogo aguardado encontrado.");
+        }
+        return games;
+      })
+    );
+  }
+  
   
 
   ////////////////////////////////////// Sessão Componentes PLAYSTATION/SONY //////////////////////////////////////////////////////////////////
@@ -107,7 +127,8 @@ export class IgdbService {
                 & platforms = (7) 
                 & category = (0) 
                 & rating_count > 50 
-                & rating >= 8;`;
+                & rating >= 8;
+                limit 30;`;
     return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -118,7 +139,8 @@ getPs2Games() {
               & platforms = (8) 
               & category = (0, 8, 10)
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -131,7 +153,8 @@ getPs3Games() {
               & aggregated_rating_count > 8
               & total_rating >= 8 
               & first_release_date >= 1163203200
-              & first_release_date <= 1415664000;`;
+              & first_release_date <= 1415664000;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -144,7 +167,8 @@ getPspGames() {
               & rating_count > 156
               & total_rating >= 8 
               & first_release_date >= 1102819200
-              & first_release_date <= 1355107200;`;
+              & first_release_date <= 1355107200;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -157,7 +181,8 @@ getPsvitaGames() {
               & rating_count > 156
               & total_rating >= 8 
   & first_release_date >= 1324089600
-  & first_release_date <= 1576540800;`;
+  & first_release_date <= 1576540800;
+  limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -168,7 +193,8 @@ getPs4Games() {
               & platforms = (48) 
               & category = (0, 8, 10) 
               & aggregated_rating_count > 8
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -179,7 +205,8 @@ getPs5Games() {
               & platforms = (167) 
               & category = (0, 8, 10) 
               & aggregated_rating_count > 8
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 /////////////////////////////////////////////////////  Sessão Componentes XBOX  /////////////////////////////////////////////////////////////////////
@@ -190,7 +217,8 @@ getXboxGames() {
               & platforms = (11) 
               & category = (0, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -203,7 +231,8 @@ getXbox360Games() {
               & rating_count > 120
               & total_rating >= 8
               & first_release_date >= 1163203200
-              & first_release_date <= 1415664000;`;
+              & first_release_date <= 1415664000;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -214,7 +243,8 @@ getXboxoneGames() {
               & platforms = (49) 
               & category = (0, 8, 10)
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -225,7 +255,8 @@ getXboxsxGames() {
               & platforms = (169) 
               & category = (0, 8, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 ///////////////////////////////////////////////     Sessão Componentes Nintendo   //////////////////////////////////////////////////////////////////////////
@@ -237,7 +268,8 @@ getNesGames() {
               & platforms = (18) 
               & category = (0, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -248,7 +280,8 @@ getSnesGames() {
               & platforms = (19) 
               & category = (0, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -259,7 +292,8 @@ getn64Games() {
               & platforms = (4) 
               & category = (0, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -270,7 +304,8 @@ getGbcGames() {
               & platforms = (22) 
               & category = (0, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -281,7 +316,8 @@ getGbaGames() {
               & platforms = (24) 
               & category = (0, 8, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -292,7 +328,8 @@ getGcGames() {
               & platforms = (21) 
               & category = (0, 8, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -303,7 +340,8 @@ getNdsGames() {
               & platforms = (20) 
               & category = (0, 8, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -316,7 +354,8 @@ getWiiGames() {
               & rating_count > 120
               & total_rating >= 8 
               & first_release_date >= 1163203200
-              & first_release_date <= 1415664000;`;
+              & first_release_date <= 1415664000;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -329,7 +368,8 @@ getn3dsGames() {
               & rating_count > 120
               & total_rating >= 8 
   & first_release_date >= 1324089600
-  & first_release_date <= 1576540800;`;
+  & first_release_date <= 1576540800;
+  limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -342,7 +382,8 @@ getWiiuGames() {
               & rating_count > 120
               & total_rating >= 8 
               & first_release_date >= 1324089600
-              & first_release_date <= 1735689599;`;
+              & first_release_date <= 1735689599;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -354,7 +395,8 @@ getSwitchGames() {
               & category = (0, 8) 
               & rating_count > 120
               & total_rating >= 8
-              & first_release_date >= 1324089600;`;
+              & first_release_date >= 1324089600;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 ////////////////////////////////////////////////////////// Componentes PC e Mobile ///////////////////////////////////////////////////////////////////////////
@@ -365,7 +407,8 @@ getPcGames() {
               & platforms = (6) 
               & category = (0, 8, 10)
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 
@@ -376,7 +419,8 @@ getMobileGames() {
               & platforms = (34) 
               & category = (0, 8, 10) 
               & rating_count > 120
-              & total_rating >= 8;`;
+              & total_rating >= 8;
+              limit 30;`;
   return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
 }
 }
