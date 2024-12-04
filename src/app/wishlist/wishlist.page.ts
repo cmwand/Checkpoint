@@ -34,8 +34,15 @@ export class WishlistPage implements OnInit {
 
   loadWishlistPosters(gameIds: string[]) {
     const gameRequests = gameIds.map((id) => this.igdbService.getGameDetails(Number(id)));
-    this.wishlist$ = forkJoin(gameRequests);
+    forkJoin(gameRequests).subscribe((games) => {
+      this.wishlist$ = new Observable((observer) => {
+        const sortedGames = games.sort((a, b) => a.name.localeCompare(b.name));
+        observer.next(sortedGames);
+        observer.complete();
+      });
+    });
   }
+  
 
   goToGameDetails(gameId: string) {
     this.router.navigate(['/game-details', gameId]);

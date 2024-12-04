@@ -9,13 +9,15 @@
     <div>     
       <img [src]="profileImage" alt="Imagem de Perfil" class="profile-image"/>
       <ion-text class="username-pfp">{{ username }}</ion-text>
-    </div> 
+    </div>
+    <div class="sidemenu">
+    <br> 
     <button [routerLink]="['/profile']">
       <ion-icon class="profile" name="person-outline"></ion-icon><ion-text>Perfil</ion-text>
     </button>
     <br>
     <button [routerLink]="['/wishlist']">
-      <ion-icon class="wishlist" name="list-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
+      <ion-icon class="wishlist" name="time-outline"></ion-icon><ion-text>Lista de desejos</ion-text> 
     </button>
     <br>
     <button [routerLink]="['/search']">
@@ -26,12 +28,16 @@
       <ion-icon class="settings" name="settings-outline"></ion-icon><ion-text>Customizar Home</ion-text>
     </button>
     <br>
+    
     <!--<button (click)="logout()">
       <ion-icon class="endsession" name="log-out-outline"></ion-icon><ion-text>Encerrar sessão</ion-text>
     </button>-->
     <button class="about-button" (click)="openAboutModal()">
       <img src="assets/img/interrogas.png" class="about-img">
-    </button>
+    </button></div>
+    <div class="credits"> 
+      Powered By:
+    <img class="igdb" src="assets/img/igdb.png"></div>
   </ion-content>
 </ion-menu>
 

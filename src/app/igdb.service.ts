@@ -112,6 +112,12 @@ export class IgdbService {
         if (!games || games.length === 0) {
           throw new Error("Nenhum jogo aguardado encontrado.");
         }
+
+        games.forEach(game => {
+          if (game.cover && game.cover.url) {
+            game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+          }
+        });
         return games;
       })
     );
@@ -129,7 +135,21 @@ export class IgdbService {
                 & rating_count > 50 
                 & rating >= 8;
                 limit 30;`;
-    return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+   
+    return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+      map((games) => {
+        if (!games || games.length === 0) {
+          throw new Error("Nenhum jogo aguardado encontrado.");
+        }
+
+        games.forEach(game => {
+          if (game.cover && game.cover.url) {
+            game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+          }
+        });
+        return games;
+      })
+    );
 }
 
 getPs2Games() {
@@ -141,7 +161,20 @@ getPs2Games() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getPs3Games() {
@@ -155,7 +188,20 @@ getPs3Games() {
               & first_release_date >= 1163203200
               & first_release_date <= 1415664000;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getPspGames() {
@@ -164,12 +210,25 @@ getPspGames() {
               where rating != null 
               & platforms = (38) 
               & category = (0, 8) 
-              & rating_count > 156
-              & total_rating >= 8 
+              & rating_count > 90
+              & total_rating >= 6 
               & first_release_date >= 1102819200
               & first_release_date <= 1355107200;
-              limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              limit 35;`;
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getPsvitaGames() {
@@ -183,7 +242,20 @@ getPsvitaGames() {
   & first_release_date >= 1324089600
   & first_release_date <= 1576540800;
   limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+    map((games) => {
+      if (!games || games.length === 0) {
+        throw new Error("Nenhum jogo aguardado encontrado.");
+      }
+
+      games.forEach(game => {
+        if (game.cover && game.cover.url) {
+          game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+        }
+      });
+      return games;
+    })
+  );
 }
 
 getPs4Games() {
@@ -195,7 +267,20 @@ getPs4Games() {
               & aggregated_rating_count > 8
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getPs5Games() {
@@ -207,7 +292,20 @@ getPs5Games() {
               & aggregated_rating_count > 8
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 /////////////////////////////////////////////////////  Sessão Componentes XBOX  /////////////////////////////////////////////////////////////////////
 getXboxGames() {
@@ -219,7 +317,20 @@ getXboxGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getXbox360Games() {
@@ -233,7 +344,20 @@ getXbox360Games() {
               & first_release_date >= 1163203200
               & first_release_date <= 1415664000;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getXboxoneGames() {
@@ -245,7 +369,20 @@ getXboxoneGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getXboxsxGames() {
@@ -257,7 +394,20 @@ getXboxsxGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 ///////////////////////////////////////////////     Sessão Componentes Nintendo   //////////////////////////////////////////////////////////////////////////
 
@@ -270,7 +420,20 @@ getNesGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getSnesGames() {
@@ -282,7 +445,20 @@ getSnesGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getn64Games() {
@@ -294,7 +470,20 @@ getn64Games() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getGbcGames() {
@@ -306,7 +495,20 @@ getGbcGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getGbaGames() {
@@ -318,7 +520,20 @@ getGbaGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getGcGames() {
@@ -330,7 +545,20 @@ getGcGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getNdsGames() {
@@ -342,7 +570,20 @@ getNdsGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getWiiGames() {
@@ -356,7 +597,20 @@ getWiiGames() {
               & first_release_date >= 1163203200
               & first_release_date <= 1415664000;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getn3dsGames() {
@@ -370,7 +624,20 @@ getn3dsGames() {
   & first_release_date >= 1324089600
   & first_release_date <= 1576540800;
   limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+    map((games) => {
+      if (!games || games.length === 0) {
+        throw new Error("Nenhum jogo aguardado encontrado.");
+      }
+
+      games.forEach(game => {
+        if (game.cover && game.cover.url) {
+          game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+        }
+      });
+      return games;
+    })
+  );
 }
 
 getWiiuGames() {
@@ -384,7 +651,20 @@ getWiiuGames() {
               & first_release_date >= 1324089600
               & first_release_date <= 1735689599;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getSwitchGames() {
@@ -397,7 +677,20 @@ getSwitchGames() {
               & total_rating >= 8
               & first_release_date >= 1324089600;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 ////////////////////////////////////////////////////////// Componentes PC e Mobile ///////////////////////////////////////////////////////////////////////////
 getPcGames() {
@@ -409,7 +702,20 @@ getPcGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 
 getMobileGames() {
@@ -421,6 +727,19 @@ getMobileGames() {
               & rating_count > 120
               & total_rating >= 8;
               limit 30;`;
-  return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers });
+              return this.http.post<any[]>(this.gamesUrl, body, { headers: this.headers }).pipe(
+                map((games) => {
+                  if (!games || games.length === 0) {
+                    throw new Error("Nenhum jogo aguardado encontrado.");
+                  }
+          
+                  games.forEach(game => {
+                    if (game.cover && game.cover.url) {
+                      game.cover.url = game.cover.url.replace(/t_[^/]+/, 't_original');
+                    }
+                  });
+                  return games;
+                })
+              );
 }
 }

@@ -3,16 +3,34 @@
   font-size: 24px;
 }
 
-ion-menu-button, ion-icon{
+ion-menu-button{
   color: #00ffff;
   font-size: 18px;
+}
+
+ion-icon{
+  color: #00ffff;
+  font-size: 16px;
 }
 button{
   background: none;
   font-size: 18px;
   font-family: "Libre Baskerville", serif;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-left: 3% !important;
 }
+.sidemenu ion-text{
+  margin-left: 2%;
+  flex: auto;
+  position: absolute;
+  color: #00ffff;
+}
+
+.igdb{
+  width: 29%;
+  height: 29%;
+}
+
 .profile{
   color: #00ffff;
 }
