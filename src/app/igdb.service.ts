@@ -98,7 +98,7 @@ export class IgdbService {
   }
   
   getMostAnticipatedGames(): Observable<any[]> {
-    const currentDate = Math.floor(Date.now() / 1000); // Obtém a data atual em segundos
+    const currentDate = Math.floor(Date.now() / 1000);
   
     const anticipatedBody = `
       fields id, name, cover.url, first_release_date, summary, rating, genres.name, platforms.name;

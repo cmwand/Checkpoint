@@ -20,15 +20,6 @@
     opacity: 1
 }
 
-/*.bg_img img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flexbox;
-    opacity: 0.7;
-    z-index: -1;
-}*/
-
 .img-grid{
     display: flex;
     flex-direction: column; 
@@ -55,56 +46,6 @@
     border:0.5px solid #00ffff;
 }
 
-/*.image1{
-height:95px;
-width:95px;
-border-radius:10px;
-border:0.5px solid #00ffff;
-margin-left:10%;
-top: 132px;
-position: absolute;
-}
-
-.image2{
-height:95px;
-width:95px;
-border-radius:10px;
-border:0.5px solid #00ffff;
-margin-left:64.3%;
-top: 132px;
-position: absolute;
-}
-
-.image3{
-height:95px;
-width:95px;
-border-radius:10px;
-border:0.5px solid #00ffff;
-margin-left:10%;
-top: 302px;
-position: absolute;
-}
-
-.image4{
-height:95px;
-width:95px;
-border-radius:10px;
-border:0.5px solid #00ffff;
-margin-left:64.3%;
-top: 302px;
-position: absolute;
-}
-
-.image5{
-    height:95px;
-    width:95px;
-    border-radius:10px;
-    border:0.5px solid #00ffff;
-    left: 37.5%;
-    top: 65%;
-    position: absolute;
-}*/
-
 .text{
     color: #00ffff;
     text-align: center;
@@ -129,8 +70,6 @@ position: absolute;
 .botao-footer{
     font-family: "Libre Baskerville", serif;
     position: relative;
-    //bottom: 10px;
-    //transform: translateX(-50%);
     padding: 10px 20px;
     font-size: 16px;
     background: linear-gradient(#002525, #008b8b);
@@ -139,37 +78,6 @@ position: absolute;
     border-radius: 5px;
     cursor: pointer;
 }
-
-/*.save-botao {
-    font-family: "Libre Baskerville", serif;
-    position: absolute;
-    bottom: 10px;
-    left: 25%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 16px;
-    background: linear-gradient(#002525, #008b8b);
-    color: #00ffff;
-    border: 1px solid #00ffff;
-    border-radius: 5px;
-    cursor: pointer;
-   }
-
-   .clear-botao {
-    font-family: "Libre Baskerville", serif;
-    position: absolute;
-    bottom: 10px;
-    right: -5%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 16px;
-    background: linear-gradient(#002525, #008b8b);
-    color: #00ffff;
-    border: 1px solid #00ffff;
-    border-radius: 5px;
-    cursor: pointer;
-   }*/
-
    .config-ps-modal {
     --background: transparent;
     --width: 80%;

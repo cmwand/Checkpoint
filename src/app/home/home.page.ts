@@ -37,24 +37,24 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     this.loadUsername();
     await this.showLoading();
-
-    // Obter jogos populares e mais aguardados
-    this.igdbService.getTrendingGames().subscribe((games) => {
-      this.trendingGames = games;
-      this.updateVisibleTrendingGames();
+  
+    this.igdbService.getTrendingGames().subscribe({
+      next: (games) => {
+        this.trendingGames = games;
+        this.updateVisibleTrendingGames();
+        this.hideLoading();
+      },
     });
-
+  
     this.igdbService.getMostAnticipatedGames().subscribe((games) => {
       this.anticipatedGames = games;
       this.updateVisibleAnticipatedGames();
     });
-
-    this.hideLoading();
   }
 
   async showLoading() {
     const loading = await this.loadingCtrl.create({
-      message: 'Entrando em contato com os servidores da Twitch, por favor aguarde...',
+      message: 'Contatando o servidor, por favor aguarde...',
       spinner: 'crescent',
       cssClass: 'custom-loading',
     });
@@ -65,6 +65,7 @@ export class HomePage implements OnInit {
     await this.loadingCtrl.dismiss();
   }
 
+  
   loadUsername() {
     this.afAuth.authState.subscribe((user) => {
       if (user) {

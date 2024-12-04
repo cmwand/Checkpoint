@@ -5,7 +5,6 @@
     <div class="game-list">
       <div *ngFor="let game of visibleWiiuGames" (click)="goToGameDetails(game.id)" class="game-item">
         <img class="game-img" [src]="game.cover.url" alt="{{ game.name }}" />
-        <!--<p>{{ game.name }}</p>-->
       </div>
     </div>
     <button class="arrow-button" (click)="nextGame()">&#8250;</button>
